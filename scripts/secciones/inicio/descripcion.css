@@ -1,0 +1,35 @@
+
+.pagina-principal-section{
+    height: 70vh;
+    background-image: url('./assets/imgs/victor-espinal.jpg?n=17');
+    background-size: cover; 
+    color:#fff;
+    display: flex;
+    justify-content: center;    
+}
+
+.pagina-principal-section div{
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0%;
+    background-color: rgba(0,0,0, 0.4);
+}
+
+.pagina-principal-section div:first-child{
+    padding: 10%;
+}
+
+.pagina-principal-section div p{
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.pagina-principal-section div video{
+    height: 90%;
+    border-radius: 8px;
+    filter:sepia(100%);
+    opacity: 0.8;
+}

@@ -1,0 +1,53 @@
+.perlifesC{
+    background-color: #eeeeee;
+    display: flex;
+    padding: 4% 2% 20%;
+    min-height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    visibility:0;
+    opacity:0;
+    animation: aparecer 3s ease-in forwards;
+}
+
+.perfiles-item{
+    width:30%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom: 50px;
+}
+
+.perfiles-item>div:nth-child(1){
+    width:40%;
+    text-align: center;
+    cursor:pointer;
+    height: 160px;
+    max-height: 160px;
+    overflow: hidden;
+    background-color: black;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.perfiles-item img{
+    width:110%;
+}
+
+.perfiles-item>div:nth-child(2){
+    width: 100%;
+}
+
+
+
+.perfiles-item h2{
+    margin: auto;
+    margin-top: 4px;
+    font-size: 1.3rem;
+    text-align: center;
+    width:50%;
+    cursor:pointer;
+}
