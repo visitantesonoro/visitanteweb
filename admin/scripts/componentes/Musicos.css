@@ -1,0 +1,36 @@
+.musicos {
+}
+
+.musicos-crear {
+  text-align: right;
+  margin: 12px 30px;
+}
+
+.musicos-crear span {
+  color: #5b71ff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.musicos-crear span:hover {
+  color: #982aff;
+}
+
+.musicos-general {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.musicos-caja {
+  width: 21%;
+  border: 1px solid green;
+  text-align: center;
+  height: 140px;
+  margin: 2%;
+  cursor: pointer;
+}
+
+.musicos-caja:hover {
+  border: 1px solid rgb(255, 113, 139);
+}
