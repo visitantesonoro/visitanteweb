@@ -1,10 +1,29 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 14px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 14px;
 }
 
-body{
+body {
+}
 
+.crear-btn {
+  text-align: right;
+  margin: 12px 30px;
+}
+
+.crear-btn span {
+    background-color: #184b67;
+    padding: 6px 15px;
+    border: 1px solid #8ac7f2;
+    border-radius: 12px;
+    color: #eaeaea;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.crear-btn span:hover {
+    background-color: #fdbf78;
 }

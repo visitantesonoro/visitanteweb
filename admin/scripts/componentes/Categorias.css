@@ -1,13 +1,13 @@
-.musicos {
+.categorias {
 }
 
-.musicos-general {
+.categorias-general {
   display: flex;
   justify-content: left;
   flex-wrap: wrap;
 }
 
-.musicos-caja {
+.categorias-caja {
   width: 21%;
   border: 1px solid green;
   text-align: center;
@@ -16,6 +16,6 @@
   cursor: pointer;
 }
 
-.musicos-caja:hover {
+.categorias-caja:hover {
   border: 1px solid rgb(255, 113, 139);
 }

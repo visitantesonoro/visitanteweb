@@ -8,8 +8,24 @@ export class Forma {
   botonEditarTxt = "Guardar";
   botonBorrarTxt = "Borrar";
   fx;
+  despuesFx;
   editando = false;
   todoOk = true;
+  opciones;
+  uri;
+
+  agregarCampo(tipo, nombre, valor, titulo, requerido, opciones) {
+    const campo = {
+      tipo,
+      nombre,
+      valor,
+      titulo,
+      requerido,
+      opciones,
+    };
+
+    this.campos.push(campo);
+  }
 
   pintar() {
     const enlace = "./scripts/classes/Forma.css?ad=1";
@@ -40,15 +56,51 @@ export class Forma {
     this.campos.forEach((campo) => {
       const div = tag("div", forma);
 
-      const h1 = tag("h1", div);
+      const h1 = tag("label", div);
       h1.innerHTML = campo.titulo;
 
-      const input = tag("input", div);
-      input.value = campo.valor;
-      input.type = campo.tipo;
-      input.addEventListener("change", () => {
-        campo.valor = input.value;
-      });
+      if (campo.tipo === "select") {
+        this.opcionesCopia = [...campo.opciones];
+
+        this.opcionesCopia.map((opcion) => (opcion.seleccionada = false));
+
+        if (typeof campo.valor === "object") {
+          const div = tag("div", forma);
+          div.className = "forma-tags";
+
+          campo.valor.forEach((valor) => {
+            const opcionObj = this.opcionesCopia.filter(
+              (opcion) => opcion.valor === valor
+            )[0];
+
+            if (opcionObj) {
+              opcionObj.seleccionada = true;
+            }
+          });
+
+          this.pintarFormaTags(div);
+        } else {
+          const select = tag("select", div);
+          select.addEventListener("change", () => {
+            campo.valor = select.value;
+          });
+
+          campo.opciones.forEach((opcion) => {
+            const option = tag("option", select);
+            option.innerHTML = opcion.rotulo;
+            option.value = opcion.valor;
+          });
+
+          select.value = campo.valor;
+        }
+      } else {
+        const input = tag("input", div);
+        input.value = campo.valor;
+        input.type = campo.tipo;
+        input.addEventListener("change", () => {
+          campo.valor = input.value;
+        });
+      }
     });
 
     const divBtn = tag("div", forma);
@@ -78,6 +130,53 @@ export class Forma {
     }
   }
 
+  pintarFormaTags(divG) {
+    let thisObj = this;
+
+    divG.innerHTML = "";
+
+    const select = tag("select", divG);
+    select.name = "tag";
+    select.addEventListener("change", () => {
+      const opcionObj = this.opcionesCopia.filter(
+        (opcion) => opcion.rotulo === select.value
+      );
+
+      opcionObj[0].seleccionada = true;
+
+      thisObj.pintarFormaTags(divG);
+    });
+
+    const option = tag("option", select);
+    option.value = "";
+    option.hidden = true;
+    option.disabled = true;
+    option.innerHTML = "Selecciona una opción";
+
+    const divI = tag("div", divG);
+    divI.className = "forma-caja";
+
+    this.opcionesCopia.map((opcion) => {
+      if (opcion.seleccionada) {
+        const div = tag("div", divI);
+
+        const span = tag("span", div);
+        span.innerHTML = `${opcion.rotulo}`;
+
+        const spanX = tag("span", div);
+        spanX.className = "forma-caja-x";
+        spanX.innerHTML = "X";
+        spanX.addEventListener("click", () => {
+          opcion.seleccionada = false;
+          thisObj.pintarFormaTags(divG);
+        });
+      } else {
+        const option = tag("option", select);
+        option.innerHTML = opcion.rotulo;
+      }
+    });
+  }
+
   enviarDatos(borrando) {
     const obj = {};
 
@@ -86,35 +185,35 @@ export class Forma {
     }
 
     this.campos.forEach((campo) => {
-      if (campo.valor === "") {
-        this.todoOk = false;
+      if (!borrando) {
+        if (campo.valor === "" && campo.requerido) {
+          this.todoOk = false;
+        }
+
+        if (typeof campo.valor === "object") {
+          campo.valor = this.opcionesCopia
+            .filter((opcion) => opcion.seleccionada)
+            .map((opcion) => opcion.valor);
+
+          obj[campo.nombre] = campo.valor;
+        } else {
+          obj[campo.nombre] = campo.valor;
+        }
       }
-      obj[campo.nombre] = campo.valor;
     });
 
     if (!this.todoOk) {
-      alert("faltan cosas");
+      alert("algunos campos requeridos están vacios");
       this.todoOk = true;
       return;
     }
 
     if (borrando) {
-      this.borrarFx(obj);
+      this.borrarFx(obj, this.despuesFx, this.uri);
     } else {
-      this.fx(obj);
+      this.fx(obj, this.despuesFx);
     }
 
     document.body.removeChild(this.contenedor);
-  }
-
-  agregarCampo(tipo, nombre, valor, titulo) {
-    const campo = {
-      tipo,
-      nombre,
-      valor,
-      titulo,
-    };
-
-    this.campos.push(campo);
   }
 }

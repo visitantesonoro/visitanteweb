@@ -1,6 +1,9 @@
 import { tag } from "../utilidades/tag.js?ad=1";
 import { bajarCss } from "../utilidades/css.js?ad=1";
 import { pintarMusicos } from "./Musicos.js?ad=1";
+import { pintarGrabaciones } from "./Grabaciones.js?ad=1";
+import { pintarCategorias } from "./Categorias.js?ad=1";
+import { pintarTags } from "./Tags.js?ad=1";
 
 let elPadre;
 
@@ -17,7 +20,7 @@ function dibujarHeader() {
       id: "musicos",
       titulo: "Músicos",
       fx: pintarMusicos,
-      activo: true,
+      activo: false,
     },
     {
       id: "grabaciones",
@@ -30,6 +33,12 @@ function dibujarHeader() {
       titulo: "Categorias",
       fx: pintarCategorias,
       activo: false,
+    },
+    {
+      id: "tags",
+      titulo: "Tags",
+      fx: pintarTags,
+      activo: true,
     },
   ];
 
@@ -48,13 +57,5 @@ function dibujarHeader() {
     });
   });
 
-  pintarMusicos();
-}
-
-function pintarGrabaciones() {
-  console.log(menu.titulo);
-}
-
-function pintarCategorias() {
-  console.log(menu.titulo);
+  pintarGrabaciones();
 }

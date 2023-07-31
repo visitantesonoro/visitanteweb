@@ -12,7 +12,7 @@ export function pintarMusicos() {
 }
 
 function traerDataMusicos() {
-  data.traerMusicos(dibujarMusicos);
+  data.traerLista(dibujarMusicos, "/admin/musicos/");
 }
 
 function dibujarMusicos(info) {
@@ -20,18 +20,20 @@ function dibujarMusicos(info) {
   div.className = "musicos";
 
   const divC = tag("div", div);
-  divC.className = "musicos-crear";
+  divC.className = "crear-btn";
 
   const span = tag("span", divC);
   span.innerHTML = "Crear";
   span.addEventListener("click", () => {
-    const forma = new Forma();
-    forma.data = null;
-    forma.agregarCampo("text", "nombre", "", "Nombre");
-    forma.agregarCampo("text", "imagen", "", "Imagen");
-    forma.fx = data.crearMusico;
-    forma.editando = false;
-    forma.pintar();
+    formaMusicos(null);
+    // const forma = new Forma();
+    // forma.data = null;
+    // forma.agregarCampo("text", "nombre", "", "Nombre", true);
+    // forma.agregarCampo("text", "imagen", "", "Imagen", false);
+    // forma.fx = data.grabarMusico;
+    // forma.despuesFx = pintarMusicos;
+    // forma.editando = false;
+    // forma.pintar();
   });
 
   const divMusicos = tag("div", div);
@@ -41,17 +43,52 @@ function dibujarMusicos(info) {
     const divM = tag("div", divMusicos);
     divM.className = "musicos-caja";
     divM.addEventListener("click", () => {
-      const forma = new Forma();
-      forma.data = musico;
-      forma.agregarCampo("text", "nombre", musico.nombre, "Nombre");
-      forma.agregarCampo("text", "imagen", musico.imagen, "Imagen");
-      forma.fx = data.editarMusico;
-      forma.borrarFx = data.borrarMusico;
-      forma.editando = true;
-      forma.pintar();
+      formaMusicos(musico);
+      // const forma = new Forma();
+      // forma.data = musico;
+      // forma.agregarCampo("text", "nombre", musico.nombre, "Nombre", true);
+      // forma.agregarCampo("text", "imagen", musico.imagen, "Imagen", false);
+      // forma.fx = data.grabarMusico;
+      // forma.uri = '/admin/musicos/borrar/';
+      // forma.borrarFx = data.borrarItem;
+      // forma.despuesFx = pintarMusicos;
+      // forma.editando = true;
+      // forma.pintar();
     });
 
     const h1 = tag("h1", divM);
     h1.innerHTML = musico.nombre;
   });
+}
+
+function formaMusicos(musico) {
+  const forma = new Forma();
+  forma.data = musico ? musico : null;
+  forma.agregarCampo(
+    "text",
+    "nombre",
+    musico ? musico.nombre : "",
+    "Nombre",
+    true
+  );
+  forma.agregarCampo(
+    "text",
+    "imagen",
+    musico ? musico.imagen : "",
+    "Imagen",
+    false
+  );
+  forma.agregarCampo(
+    "text",
+    "descripcion",
+    musico ? musico.descripcion : "",
+    "Descripción",
+    false
+  );
+  forma.fx = data.grabarMusico;
+  forma.uri = "/admin/musicos/borrar/";
+  forma.borrarFx = data.borrarItem;
+  forma.despuesFx = pintarMusicos;
+  forma.editando = musico ? true : false;
+  forma.pintar();
 }
