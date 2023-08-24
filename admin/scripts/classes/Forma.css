@@ -130,3 +130,7 @@
 .forma-caja-x:hover{
   background-color: #ef4360;
 }
+
+.forma img{
+  width:40%;
+}

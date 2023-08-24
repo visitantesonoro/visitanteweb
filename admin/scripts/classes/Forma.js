@@ -1,5 +1,6 @@
 import { tag } from "../utilidades/tag.js?ad=1";
 import { bajarCss } from "../utilidades/css.js?ad=1";
+import { baseUri } from "../../enviroment.js?ad=1";
 
 export class Forma {
   contenedor;
@@ -56,7 +57,7 @@ export class Forma {
     this.campos.forEach((campo) => {
       const div = tag("div", forma);
 
-      const h1 = tag("label", div);
+      const h1 = tag("h1", div);
       h1.innerHTML = campo.titulo;
 
       if (campo.tipo === "select") {
@@ -94,12 +95,39 @@ export class Forma {
           select.value = campo.valor;
         }
       } else {
-        const input = tag("input", div);
-        input.value = campo.valor;
-        input.type = campo.tipo;
-        input.addEventListener("change", () => {
-          campo.valor = input.value;
-        });
+        if(campo.tipo === "file"){
+
+          if(campo.opciones.tipo === "img"){
+            thisObj.img = tag("img", div);
+            thisObj.img.src = (campo.valor != '') ? `${baseUri}/${campo.valor}` : "./assets/img/auriculares.png";
+          }
+
+          const input = tag("input", div);
+          input.value = campo.valor;
+          input.type = campo.tipo;
+          input.accept = campo.opciones.ext;
+          input.addEventListener("change", (event) => {
+            if (event.target.files && event.target.files.length === 1) {
+              const file = event.target.files[0];
+        
+              const fileReader = new FileReader();
+              fileReader.addEventListener('load', ()=>{
+                thisObj.img.src = fileReader.result;
+              })
+              fileReader.readAsDataURL(file)
+        
+              campo.valor = file;
+            }
+          });
+
+        }else{
+          const input = tag("input", div);
+          input.value = campo.valor;
+          input.type = campo.tipo;
+          input.addEventListener("change", () => {
+            campo.valor = input.value;
+          });
+        }
       }
     });
 
@@ -185,18 +213,19 @@ export class Forma {
     }
 
     this.campos.forEach((campo) => {
+
       if (!borrando) {
-        if (campo.valor === "" && campo.requerido) {
+        if (campo.valor === "" && campo.requerido || !campo.valor  && campo.requerido) {
           this.todoOk = false;
         }
 
-        if (typeof campo.valor === "object") {
+        if (typeof campo.valor === "object" && campo.tipo != "file") {
           campo.valor = this.opcionesCopia
-            .filter((opcion) => opcion.seleccionada)
-            .map((opcion) => opcion.valor);
+          .filter(opcion => opcion.seleccionada)
+          .map(opcion => opcion.valor)
 
           obj[campo.nombre] = campo.valor;
-        } else {
+        }else{
           obj[campo.nombre] = campo.valor;
         }
       }

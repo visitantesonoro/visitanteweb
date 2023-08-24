@@ -4,6 +4,7 @@ import { pintarMusicos } from "./Musicos.js?ad=1";
 import { pintarGrabaciones } from "./Grabaciones.js?ad=1";
 import { pintarCategorias } from "./Categorias.js?ad=1";
 import { pintarTags } from "./Tags.js?ad=1";
+import { pintarLogin } from "./Login.js?ad=1";
 
 let elPadre;
 
@@ -20,7 +21,7 @@ function dibujarHeader() {
       id: "musicos",
       titulo: "Músicos",
       fx: pintarMusicos,
-      activo: false,
+      activo: true,
     },
     {
       id: "grabaciones",
@@ -38,7 +39,7 @@ function dibujarHeader() {
       id: "tags",
       titulo: "Tags",
       fx: pintarTags,
-      activo: true,
+      activo: false,
     },
   ];
 
@@ -55,7 +56,19 @@ function dibujarHeader() {
       div.className = "menu activo";
       item.fx();
     });
+
+    if(item.activo){
+      item.fx();
+    }
   });
 
-  pintarGrabaciones();
+  const divS = tag("div", header);
+  divS.className = "salir";
+
+  const spanS = tag("span", divS);
+  spanS.innerHTML = "Salir";
+  spanS.addEventListener("click", () => {
+    localStorage.removeItem("administrador");
+    pintarLogin();
+  });
 }

@@ -9,13 +9,34 @@
 
 .musicos-caja {
   width: 21%;
-  border: 1px solid green;
   text-align: center;
-  height: 140px;
+  height: 180px;
   margin: 2%;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
 }
 
 .musicos-caja:hover {
   border: 1px solid rgb(255, 113, 139);
+}
+
+.musicos-caja h1{
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  bottom: 0px;
+  background-color: rgba(27, 27, 27, 0.6);
+  padding: 12px;
+  color: aliceblue;
+}
+
+.musicos-caja img{
+  position: absolute;
+  left: 0;
+  top:0;
+  width:100%;
+  z-index: 1;
 }

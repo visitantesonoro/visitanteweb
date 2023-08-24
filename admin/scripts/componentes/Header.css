@@ -1,4 +1,5 @@
 header{
+    position: relative;
     display: flex;
     justify-content: center;
     padding: 1%;
@@ -18,4 +19,37 @@ header{
 .activo, .menu:hover{
     background-color: rgb(255, 255, 255);
     color: #666;
+}
+
+.salir{
+    position: absolute;
+    right: 0px;
+    top:0px;
+    height: 100%;
+    padding: 0 20px;
+    color:rgb(141, 194, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.salir span{
+    background-color: #eaeaea;
+    padding: 6px 15px;
+    border-radius: 12px;
+    color: #184b67;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0px 10px;
+}
+
+.salir span:hover{
+    background-color: #184b67;
+    color:#eaeaea;
+}
+
+.salir:hover{
+    color: aliceblue;
 }

@@ -1,6 +1,6 @@
 import { tag } from "../utilidades/tag.js?ad=1";
 import { contenido } from "../classes/Contenido.js?ad=1";
-import { data } from "../classes/Data.js?ad=1";
+import { data } from "../data/Data.js?ad=1";
 import { Forma } from "../classes/Forma.js?ad=1";
 import { bajarCss } from "../utilidades/css.js?ad=1";
 
@@ -44,6 +44,14 @@ function dibujarCategorias(info) {
 }
 
 function formaCategorias(categoria) {
+
+  const imgOp = {
+    id:"imagen",
+    tipo:"img",
+    ext:[".jpg, .png, .jpeg"]
+  }
+
+
   const forma = new Forma();
   forma.data = categoria ? categoria : null;
   forma.agregarCampo(
@@ -55,17 +63,18 @@ function formaCategorias(categoria) {
   );
   forma.agregarCampo(
     "text",
-    "imagen",
-    categoria ? categoria.imagen : "",
-    "Imagen",
-    false
-  );
-  forma.agregarCampo(
-    "text",
     "descripcion",
     categoria ? categoria.descripcion : "",
     "Descripción",
     false
+  );
+  forma.agregarCampo(
+    "file",
+    "imagen",
+    categoria ? categoria.imagen : "",
+    "Imagen",
+    true,
+    imgOp
   );
   forma.fx = data.grabarCategoria;
   forma.uri = "/admin/categorias/borrar/";

@@ -1,6 +1,6 @@
 import { tag } from "../utilidades/tag.js?ad=1";
 import { contenido } from "../classes/Contenido.js?ad=1";
-import { data } from "../classes/Data.js?ad=1";
+import { data } from "../data/Data.js?ad=1";
 import { Forma } from "../classes/Forma.js?ad=1";
 import { bajarCss } from "../utilidades/css.js?ad=1";
 
@@ -128,6 +128,13 @@ function dibujarGrabaciones(info) {
 
 function pintarFormaGrabacion(info) {
 
+  const audioOp = {
+    id:"audio",
+    tipo:"audio",
+    ext:[".mp3"]
+  }
+
+
   const grabacionObj = {
     titulo: "",
     descripcion: "",
@@ -225,6 +232,14 @@ function pintarFormaGrabacion(info) {
     "Tags",
     false,
     tagsOp
+  );
+  forma.agregarCampo(
+    "file",
+    "audio",
+    grabacion ? grabacion.audio : "",
+    "Audio",
+    true,
+    audioOp
   );
   forma.uri = "/admin/grabaciones/borrar/";
   forma.borrarFx = data.borrarItem;

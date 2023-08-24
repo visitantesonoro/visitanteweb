@@ -1,6 +1,6 @@
 import { tag } from "../utilidades/tag.js?ad=1";
 import { contenido } from "../classes/Contenido.js?ad=1";
-import { data } from "../classes/Data.js?ad=1";
+import { data } from "../data/Data.js?ad=1";
 import { Forma } from "../classes/Forma.js?ad=1";
 import { bajarCss } from "../utilidades/css.js?ad=1";
 

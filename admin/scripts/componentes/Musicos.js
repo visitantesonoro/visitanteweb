@@ -1,8 +1,9 @@
 import { tag } from "../utilidades/tag.js?ad=1";
 import { contenido } from "../classes/Contenido.js?ad=1";
-import { data } from "../classes/Data.js?ad=1";
+import { data } from "../data/Data.js?ad=1";
 import { Forma } from "../classes/Forma.js?ad=1";
 import { bajarCss } from "../utilidades/css.js?ad=1";
+import { baseUri } from "../../enviroment.js?ad=1";
 
 export function pintarMusicos() {
   contenido.main.innerHTML = "";
@@ -26,14 +27,6 @@ function dibujarMusicos(info) {
   span.innerHTML = "Crear";
   span.addEventListener("click", () => {
     formaMusicos(null);
-    // const forma = new Forma();
-    // forma.data = null;
-    // forma.agregarCampo("text", "nombre", "", "Nombre", true);
-    // forma.agregarCampo("text", "imagen", "", "Imagen", false);
-    // forma.fx = data.grabarMusico;
-    // forma.despuesFx = pintarMusicos;
-    // forma.editando = false;
-    // forma.pintar();
   });
 
   const divMusicos = tag("div", div);
@@ -44,24 +37,25 @@ function dibujarMusicos(info) {
     divM.className = "musicos-caja";
     divM.addEventListener("click", () => {
       formaMusicos(musico);
-      // const forma = new Forma();
-      // forma.data = musico;
-      // forma.agregarCampo("text", "nombre", musico.nombre, "Nombre", true);
-      // forma.agregarCampo("text", "imagen", musico.imagen, "Imagen", false);
-      // forma.fx = data.grabarMusico;
-      // forma.uri = '/admin/musicos/borrar/';
-      // forma.borrarFx = data.borrarItem;
-      // forma.despuesFx = pintarMusicos;
-      // forma.editando = true;
-      // forma.pintar();
     });
 
     const h1 = tag("h1", divM);
     h1.innerHTML = musico.nombre;
+
+    const img = tag("img", divM);
+    img.src = `${baseUri}/${musico.imagen}`
   });
 }
 
 function formaMusicos(musico) {
+
+  const imgOp = {
+    id:"imagen",
+    tipo:"img",
+    ext:[".jpg, .png, .jpeg"]
+  }
+
+
   const forma = new Forma();
   forma.data = musico ? musico : null;
   forma.agregarCampo(
@@ -72,11 +66,12 @@ function formaMusicos(musico) {
     true
   );
   forma.agregarCampo(
-    "text",
+    "file",
     "imagen",
     musico ? musico.imagen : "",
     "Imagen",
-    false
+    false,
+    imgOp
   );
   forma.agregarCampo(
     "text",
