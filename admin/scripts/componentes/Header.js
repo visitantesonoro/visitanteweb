@@ -21,13 +21,13 @@ function dibujarHeader() {
       id: "musicos",
       titulo: "Músicos",
       fx: pintarMusicos,
-      activo: true,
+      activo: false,
     },
     {
       id: "grabaciones",
       titulo: "Grabaciones",
       fx: pintarGrabaciones,
-      activo: false,
+      activo: true,
     },
     {
       id: "categorias",

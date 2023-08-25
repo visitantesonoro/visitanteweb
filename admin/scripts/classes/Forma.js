@@ -100,6 +100,10 @@ export class Forma {
           if(campo.opciones.tipo === "img"){
             thisObj.img = tag("img", div);
             thisObj.img.src = (campo.valor != '') ? `${baseUri}/${campo.valor}` : "./assets/img/auriculares.png";
+          }else if(campo.opciones.tipo === "audio"){
+            thisObj.audio = tag("audio", div);
+            thisObj.audio.controls = true;
+            thisObj.audio.src = (campo.valor != '') ? `${baseUri}/${campo.valor}` : "";
           }
 
           const input = tag("input", div);
@@ -112,7 +116,12 @@ export class Forma {
         
               const fileReader = new FileReader();
               fileReader.addEventListener('load', ()=>{
-                thisObj.img.src = fileReader.result;
+                
+                if(campo.opciones.tipo === "img"){
+                  thisObj.img.src = fileReader.result;
+                }else if(campo.opciones.tipo === "audio") {
+                  thisObj.audio.src = fileReader.result;
+                }               
               })
               fileReader.readAsDataURL(file)
         

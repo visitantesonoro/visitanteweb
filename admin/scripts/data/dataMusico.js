@@ -1,4 +1,5 @@
 import { baseUri } from "../../enviroment.js?ad=1";
+import { httprequest } from "./httprequest.js?ad=1";
 
 export async function grabarMusico(info) {
   const uri = !info.id
@@ -11,7 +12,7 @@ export async function grabarMusico(info) {
   if (info.imagen instanceof File) {
     imgFile = info.imagen;
   } else {
-    imgFile = await makeRequest(info.imagen);
+    imgFile = await httprequest(info.imagen);
   }
 
   var data = new FormData();
@@ -29,19 +30,4 @@ export async function grabarMusico(info) {
   return respuesta;
 }
 
-function makeRequest(file) {
-  return new Promise(function (resolve, reject) {
-    var request = new XMLHttpRequest();
-    request.open("GET", `${baseUri}/${file}`, true);
-    request.responseType = "blob";
-    request.onload = function () {
-      var status = request.status;
-      if (status == 200) {
-        resolve(request.response);
-      } else {
-        reject(status);
-      }
-    };
-    request.send();
-  });
-}
+

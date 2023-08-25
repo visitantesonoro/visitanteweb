@@ -128,13 +128,6 @@ function dibujarGrabaciones(info) {
 
 function pintarFormaGrabacion(info) {
 
-  const audioOp = {
-    id:"audio",
-    tipo:"audio",
-    ext:[".mp3"]
-  }
-
-
   const grabacionObj = {
     titulo: "",
     descripcion: "",
@@ -183,9 +176,23 @@ function pintarFormaGrabacion(info) {
     tagsOp.push(opcion);
   });
 
+  const audioOp = {
+    id:"audio",
+    tipo:"audio",
+    ext:[".mp3"]
+  }
+
   const forma = new Forma();
   forma.data = grabacion;
   forma.agregarCampo("text", "titulo", grabacion.titulo, "Titulo", true);
+  forma.agregarCampo(
+    "file",
+    "audio",
+    grabacion ? grabacion.audio : "",
+    "Audio",
+    true,
+    audioOp
+  );
   forma.agregarCampo(
     "text",
     "descripcion",
@@ -232,14 +239,6 @@ function pintarFormaGrabacion(info) {
     "Tags",
     false,
     tagsOp
-  );
-  forma.agregarCampo(
-    "file",
-    "audio",
-    grabacion ? grabacion.audio : "",
-    "Audio",
-    true,
-    audioOp
   );
   forma.uri = "/admin/grabaciones/borrar/";
   forma.borrarFx = data.borrarItem;

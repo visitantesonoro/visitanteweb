@@ -1,5 +1,5 @@
 .forma {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   z-index: 10;
@@ -133,4 +133,9 @@
 
 .forma img{
   width:40%;
+}
+
+.forma audio{
+  border: 3px solid #cfcfcf;
+  border-radius: 12px;
 }
