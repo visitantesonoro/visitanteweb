@@ -55,7 +55,6 @@ function formaMusicos(musico) {
     ext:[".jpg, .png, .jpeg"]
   }
 
-
   const forma = new Forma();
   forma.data = musico ? musico : null;
   forma.agregarCampo(
@@ -70,7 +69,7 @@ function formaMusicos(musico) {
     "imagen",
     musico ? musico.imagen : "",
     "Imagen",
-    false,
+    true,
     imgOp
   );
   forma.agregarCampo(
