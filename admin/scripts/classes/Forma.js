@@ -99,7 +99,7 @@ export class Forma {
 
           if(campo.opciones.tipo === "img"){
             thisObj.img = tag("img", div);
-            thisObj.img.src = (campo.valor != '') ? `${baseUri}/${campo.valor}` : "./assets/img/auriculares.png";
+            thisObj.img.src = (campo.valor != '') ? `${baseUri}/${campo.valor}` : "";
           }else if(campo.opciones.tipo === "audio"){
             thisObj.audio = tag("audio", div);
             thisObj.audio.controls = true;

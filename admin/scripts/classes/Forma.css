@@ -53,19 +53,21 @@
 }
 
 .forma form button {
-  background-color: #184b67;
-  padding: 6px 15px;
-  border: 1px solid #8ac7f2;
-  border-radius: 12px;
-  color: #eaeaea;
   cursor: pointer;
   font-size: 1.1rem;
   font-weight: bold;
   margin: 0px 10px;
+  border: 0px;
+  background-color: rgb(222, 222, 222);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 3px 0px inset;
+  padding: 6px 15px;
+  border-radius: 12px;
+  color: #184b67;
 }
 
 .forma form button:hover {
-  background-color: #fdbf78;
+  background-color: #184b67;
+  color: #eaeaea;
 }
 
 .forma-x {
@@ -73,69 +75,83 @@
   justify-content: right;
   align-items: center;
   margin-bottom: 5px;
+  background-color: #ec2546;
+  position: relative;
 }
 
 .forma-x span {
-  width: 34px;
-  height: 34px;
-  background-color: #184b67;
+  width: 50px;
+  height: 45px;
+  background-color: #ffffff;
+  color: #484747;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
   cursor: pointer;
-  border-radius: 12px;
-  font-size: 1.3rem;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  position: fixed;
+  top:20px;
+  right: 30px;
+  border: 1px solid rgb(193, 193, 193);
+  box-shadow: 1px 0px 8px 0px rgba(252, 252, 252, 0.2);
 }
 
 .forma-x span:hover {
-  background-color: #fdbf78;
+  background-color: #1e1e1e;
+  color: #fff;
 }
 
 .borrar {
-  background-color: #fd788e !important;
+  background-color: #ec2546 !important;
+  color:#fff !important;
+  box-shadow: rgba(226, 110, 110, 0.15) 0px 1px 3px 0px inset;
 }
 
-.forma-tags{
- 
+.borrar:hover{
+  background-color: #184b67 !important;
+  color: #eaeaea !important;
 }
 
-.forma-caja{
+.forma-tags {
+}
+
+.forma-caja {
   display: flex;
   flex-wrap: wrap;
   margin: 12px 0px;
 }
 
-.forma-caja div{
+.forma-caja div {
   padding: 8px 17px 8px 10px;
   margin-right: 12px;
   position: relative;
   background-color: rgb(167, 188, 215);
   border-radius: 8px;
-  color:#ffffff;
+  color: #ffffff;
 }
 
-.forma-caja-x{
+.forma-caja-x {
   position: absolute;
   right: -4px;
-  top:-4px;
+  top: -4px;
   background-color: #767676;
   padding: 2px 4px;
   border-radius: 6px;
   font-size: 0.8rem;
   cursor: pointer;
-  color:#fcfcfc;
+  color: #fcfcfc;
 }
 
-.forma-caja-x:hover{
+.forma-caja-x:hover {
   background-color: #ef4360;
 }
 
-.forma img{
-  width:40%;
+.forma img {
+  width: 40%;
 }
 
-.forma audio{
+.forma audio {
   border: 3px solid #cfcfcf;
   border-radius: 12px;
 }

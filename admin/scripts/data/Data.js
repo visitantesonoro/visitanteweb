@@ -63,7 +63,6 @@ class Data {
       alert("El item está asociado con otros records y no se puede borrar");
       return;
     }
-
     fx();
   }
 }

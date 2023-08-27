@@ -3,6 +3,7 @@ import { contenido } from "../classes/Contenido.js?ad=1";
 import { data } from "../data/Data.js?ad=1";
 import { Forma } from "../classes/Forma.js?ad=1";
 import { bajarCss } from "../utilidades/css.js?ad=1";
+import { baseUri } from "../../enviroment.js?ad=1";
 
 export function pintarCategorias() {
   contenido.main.innerHTML = "";
@@ -40,6 +41,9 @@ function dibujarCategorias(info) {
 
     const h1 = tag("h1", divM);
     h1.innerHTML = categoria.titulo;
+
+    const img = tag("img", divM);
+    img.src = (categoria.imagen) ? `${baseUri}/${categoria.imagen}` : "";
   });
 }
 
@@ -50,7 +54,6 @@ function formaCategorias(categoria) {
     tipo:"img",
     ext:[".jpg, .png, .jpeg"]
   }
-
 
   const forma = new Forma();
   forma.data = categoria ? categoria : null;
@@ -73,7 +76,7 @@ function formaCategorias(categoria) {
     "imagen",
     categoria ? categoria.imagen : "",
     "Imagen",
-    true,
+    false,
     imgOp
   );
   forma.fx = data.grabarCategoria;

@@ -6,24 +6,25 @@
 }
 
 body {
+  background-color: rgb(255, 255, 255);
 }
 
 .crear-btn {
   text-align: right;
-  margin: 12px 30px;
+  margin: 20px 30px;
 }
 
 .crear-btn span {
-    background-color: #184b67;
-    padding: 6px 15px;
-    border: 1px solid #8ac7f2;
-    border-radius: 12px;
-    color: #eaeaea;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: bold;
+  background-color: rgb(21, 78, 193);
+  box-shadow: rgba(122, 208, 245, 0.15) 0px 1px 3px 0px inset;
+  padding: 6px 15px;
+  border-radius: 12px;
+  color: #f1ecec;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 .crear-btn span:hover {
-    background-color: #fdbf78;
+  background-color: #3c8f27;
 }

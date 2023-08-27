@@ -1,5 +1,4 @@
 import { baseUri } from "../../enviroment.js?ad=1";
-import { httprequest } from "./httprequest.js?ad=1";
 
 export async function grabarGrabacion(info) {
 
@@ -19,7 +18,7 @@ export async function grabarGrabacion(info) {
   if (info.audio instanceof File) {
     audioFile = info.audio;
   } else {
-    audioFile = await httprequest(info.audio);
+    audioFile = null;
   }
 
   var data = new FormData();
@@ -42,42 +41,4 @@ export async function grabarGrabacion(info) {
   const respuesta = await solicitud.json();
 
   return respuesta;
-
-
-
-  /********/
-
-  // let uri;
-  // let metodo;
-
-  // if(info.id){
-  //   uri = `${baseUri}/admin/grabaciones/editar/${info.id}`;
-  //   metodo = "PATCH"
-  // }else{
-  //   uri = `${baseUri}/admin/grabaciones/crear`;
-  //   metodo = "POST"
-  // }
-
-  // const response = await fetch(uri, {
-  //   method: metodo,
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify({
-  //     titulo: info.titulo,
-  //     descripcion: info.descripcion,
-  //     fecha: info.fecha,
-  //     lugar: info.lugar,
-  //     longitud: info.longitud,
-  //     latitud: info.latitud,
-  //     musico: info.musico,
-  //     categoria: info.categoria,
-  //     tags:info.tags,
-  //     audio:"audio"
-  //   }),
-  // });
-
-  // const responseData = await response.json();
-
-  // return responseData;
 }

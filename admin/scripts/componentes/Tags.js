@@ -3,6 +3,7 @@ import { contenido } from "../classes/Contenido.js?ad=1";
 import { data } from "../data/Data.js?ad=1";
 import { Forma } from "../classes/Forma.js?ad=1";
 import { bajarCss } from "../utilidades/css.js?ad=1";
+import { baseUri } from "../../enviroment.js?ad=1";
 
 export function pintarTags() {
   contenido.main.innerHTML = "";
@@ -41,10 +42,20 @@ function dibujarTags(info) {
 
     const h1 = tag("h1", divM);
     h1.innerHTML = tagDB.titulo;
+
+    const img = tag("img", divM);
+    img.src = (tagDB.imagen) ? `${baseUri}/${tagDB.imagen}`: "";
   });
 }
 
 function formaTags(tag) {
+
+  const imgOp = {
+    id:"imagen",
+    tipo:"img",
+    ext:[".jpg, .png, .jpeg"]
+  }
+
   const forma = new Forma();
   forma.data = tag ? tag : null;
   forma.agregarCampo(
@@ -56,17 +67,18 @@ function formaTags(tag) {
   );
   forma.agregarCampo(
     "text",
-    "imagen",
-    tag ? tag.imagen : "",
-    "Imagen",
-    false
-  );
-  forma.agregarCampo(
-    "text",
     "descripcion",
     tag ? tag.descripcion : "",
     "Descripción",
     false
+  );
+  forma.agregarCampo(
+    "file",
+    "imagen",
+    tag ? tag.imagen : "",
+    "Imagen",
+    false,
+    imgOp
   );
   forma.fx = data.grabarTag;
   forma.uri = "/admin/tags/borrar/";

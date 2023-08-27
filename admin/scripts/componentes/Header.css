@@ -3,22 +3,22 @@ header{
     display: flex;
     justify-content: center;
     padding: 1%;
-    background-color: #666;
+    background-color: rgb(253, 253, 253);
+    border-bottom: 1px solid rgb(234, 234, 234);
 }
 
 .menu{
-    background-color: rgb(191, 191, 191);
     padding: 4px 11px;
     cursor: pointer;
     border-radius: 8px;
     font-size: 1.3rem;
     margin: 0 12px;
-    color: #858585;
+    color: rgb(125, 125, 125);
 }
 
 .activo, .menu:hover{
-    background-color: rgb(255, 255, 255);
-    color: #666;
+    color: rgb(80, 80, 80);
+    font-weight: bold;
 }
 
 .salir{
@@ -35,7 +35,8 @@ header{
 }
 
 .salir span{
-    background-color: #eaeaea;
+    background-color: rgb(246, 246, 246);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 3px 0px inset;
     padding: 6px 15px;
     border-radius: 12px;
     color: #184b67;

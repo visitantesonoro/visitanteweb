@@ -25,7 +25,7 @@ function dibujarGrabaciones(info) {
   const span = tag("span", divC);
   span.innerHTML = "Crear";
   span.addEventListener("click", () => {
-    data.traerLista(pintarFormaGrabacion, "/admin/musicos/");
+    data.traerLista(pintarFormaGrabacion, "/admin/grabaciones/");
   });
 
   const divMusicos = tag("div", div);
@@ -135,6 +135,8 @@ function pintarFormaGrabacion(info) {
     lugar: "",
     longitud: "",
     musico: "",
+    categoria:"",
+    tags:[]
   };
 
   const musicos = info.musicos ? info.musicos : info;
@@ -179,17 +181,17 @@ function pintarFormaGrabacion(info) {
   const audioOp = {
     id:"audio",
     tipo:"audio",
-    ext:[".mp3"]
+    ext:[".mp3", ".m4a"]
   }
 
   const forma = new Forma();
   forma.data = grabacion;
-  forma.agregarCampo("text", "titulo", grabacion.titulo, "Titulo", true);
+  forma.agregarCampo("text", "titulo", grabacion.titulo, "Titulo*", true);
   forma.agregarCampo(
     "file",
     "audio",
     grabacion ? grabacion.audio : "",
-    "Audio",
+    "Audio*",
     true,
     audioOp
   );
@@ -204,23 +206,23 @@ function pintarFormaGrabacion(info) {
     "date",
     "fecha",
     grabacion.fecha.split("T")[0],
-    "Fecha",
+    "Fecha*",
     true
   );
-  forma.agregarCampo("text", "lugar", grabacion.lugar, "Lugar", true);
+  forma.agregarCampo("text", "lugar", grabacion.lugar, "Lugar*", true);
   forma.agregarCampo(
     "number",
     "longitud",
     grabacion.longitud,
-    "Longitud",
+    "Longitud*",
     true
   );
-  forma.agregarCampo("number", "latitud", grabacion.latitud, "Latitud", true);
+  forma.agregarCampo("number", "latitud", grabacion.latitud, "Latitud*", true);
   forma.agregarCampo(
     "select",
     "musico",
     grabacion.musico,
-    "Músico",
+    "Músico*",
     true,
     musicosOp
   );
@@ -228,8 +230,8 @@ function pintarFormaGrabacion(info) {
     "select",
     "categoria",
     grabacion.categoria,
-    "Categoria",
-    false,
+    "Categoria*",
+    true,
     categoriasOp
   );
   forma.agregarCampo(

@@ -8,18 +8,19 @@
 }
 
 .musicos-caja {
-  width: 21%;
+  width: 23%;
   text-align: center;
   height: 180px;
-  margin: 2%;
+  margin: 1%;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 2px;
+  transition: 0.5s;
 }
 
 .musicos-caja:hover {
-  border: 1px solid rgb(255, 113, 139);
+  filter: blur(1px) saturate(5) sepia(90%);
 }
 
 .musicos-caja h1{

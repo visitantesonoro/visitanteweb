@@ -6,8 +6,6 @@ export async function grabarCategoria(info) {
     : `${baseUri}/admin/categorias/editar/${info.id}`;
   const metodo = !info.id ? "POST" : "PATCH";
 
-  const file = info.imagen;
-
   var data = new FormData();
   data.append("titulo", info.titulo);
   data.append("imagen", info.imagen);

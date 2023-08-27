@@ -12,7 +12,7 @@ export async function grabarMusico(info) {
   if (info.imagen instanceof File) {
     imgFile = info.imagen;
   } else {
-    imgFile = "";
+    imgFile = null;
   }
 
   var data = new FormData();
