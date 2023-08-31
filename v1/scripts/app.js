@@ -49,6 +49,7 @@ export function crearEstructura() {
 }
 
 export function escogerSeccion() {
+ 
   let nombrePagina = location.hash;
 
   if (nombrePagina === "#/home") {
@@ -68,8 +69,17 @@ export function escogerSeccion() {
       entrando = false;
       player.ponerCancionRandom();
     }
+  } else if (nombrePagina === "#/mapa") {
+    header.mostrarHeader();
+    logo.pintarInicio = false;
+    info.seccion = "mapa";
+    mapa.mapa.style.animation = "slide-down 1200ms ease-out forwards";
+    if (entrando) {
+      entrando = false;
+      player.ponerCancionRandom();
+    }
   } else {
-    window.location.href = "#/home";
+    window.location.href = "/#/home";
   }
 }
 

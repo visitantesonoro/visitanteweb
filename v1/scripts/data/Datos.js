@@ -2,7 +2,7 @@ import { crearEstructura } from "../app.js?n=17";
 import { tag } from "../componentes/utilidades/tag.js?n=17";
 
 //const BASEURI = "https://alejoforero.com/proyectos/visitante-sonoro/frontend/scripts/data/";
-const BASEURI = "http://127.0.0.1:5500/scripts/data/";
+const BASEURI = "http://127.0.0.1:5500/v1/scripts/data/";
 
 
 class Datos {
@@ -14,6 +14,7 @@ class Datos {
   musicoS;
 
   async traerDatos(url, tipo, ejecutar) {
+
     const enlace = `${BASEURI}${url}`;
 
     try {

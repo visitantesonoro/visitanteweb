@@ -24,6 +24,7 @@ export async function grabarGrabacion(info) {
   var data = new FormData();
   data.append("titulo", info.titulo);
   data.append("descripcion", info.descripcion);
+  data.append("interpretes", info.interpretes);
   data.append("fecha", JSON.stringify(info.fecha));
   data.append("lugar", info.lugar);
   data.append("longitud", info.longitud);

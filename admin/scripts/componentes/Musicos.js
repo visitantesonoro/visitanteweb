@@ -73,7 +73,7 @@ function formaMusicos(musico) {
     imgOp
   );
   forma.agregarCampo(
-    "text",
+    "textarea",
     "descripcion",
     musico ? musico.descripcion : "",
     "Descripción",

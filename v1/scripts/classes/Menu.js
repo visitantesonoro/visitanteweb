@@ -29,15 +29,14 @@ class Menu {
       }
 
       info.seccion = "home";
-      window.location.href = "#/home";
+      window.location.href = "/#/home";
     });
 
     const a = tag("a", nav);
     a.innerHTML = "Mapa";
     a.addEventListener("click", () => {
       this.conmutarMenu();
-      info.seccion = "mapa";
-      mapa.mapa.style.animation = "slide-down 1200ms ease-out forwards";
+       window.location.href = "/#/mapa";
     });
 
     const aP = tag("a", nav);
@@ -48,7 +47,9 @@ class Menu {
         mapa.mapa.style.animation = "slide-up 900ms ease-out forwards";
       }
 
-      window.location.href = "#/perfiles";
+      mapa.mapa.style.animation = "slide-up 900ms ease-out forwards";
+
+      window.location.href = "/#/perfiles";
     });
   }
 

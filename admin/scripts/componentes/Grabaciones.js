@@ -196,13 +196,6 @@ function pintarFormaGrabacion(info) {
     audioOp
   );
   forma.agregarCampo(
-    "text",
-    "descripcion",
-    grabacion.descripcion,
-    "Descripcion",
-    false
-  );
-  forma.agregarCampo(
     "date",
     "fecha",
     grabacion.fecha.split("T")[0],
@@ -241,6 +234,20 @@ function pintarFormaGrabacion(info) {
     "Tags",
     false,
     tagsOp
+  );
+  forma.agregarCampo(
+    "textarea",
+    "descripcion",
+    grabacion.descripcion,
+    "Descripcion",
+    false
+  );
+  forma.agregarCampo(
+    "textarea",
+    "interpretes",
+    grabacion.interpretes,
+    "Intérpretes",
+    false
   );
   forma.uri = "/admin/grabaciones/borrar/";
   forma.borrarFx = data.borrarItem;
