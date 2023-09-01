@@ -26,9 +26,15 @@ function dibujarLogo() {
   const h2 = tag("h2", divLogo);
   h2.innerHTML = "VISITANTE SONORO";
   h2.addEventListener("click", onClickLogo);
+
+  let subdirectorio = location.hash;
+
+  if(subdirectorio == '' || !subdirectorio){
+    pintarIndicaciones();
+  }
 }
 
-export function pintarIndicaciones() {
+function pintarIndicaciones() {
   const div = tag("div", contenido.info);
   div.className = "infoC";
 

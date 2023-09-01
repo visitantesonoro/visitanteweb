@@ -1,10 +1,9 @@
 import { bajarCss } from "../utilidades/css.js?w=1";
 import { tag } from "../utilidades/tag.js?w=1";
 import { contenido } from "../classes/Contenido.js?w=1";
-import { textos } from "../utilidades/textos.js?w=1";
 
 export function pintarMenu() {
-  const enlace = "./scripts/componentes/Menu.css";
+  const enlace = "./scripts/componentes/Menu.css?w=1";
   bajarCss(enlace, dibujarMenu);
 }
 

@@ -1,10 +1,10 @@
 import { tag } from "./utilidades/tag.js?w=1";
 import { contenido } from "./classes/Contenido.js?w=1";
-import { pintarEntrada, pintarIndicaciones } from "./home/Entrada.js?w=1";
+import { pintarEntrada } from "./home/Entrada.js?w=1";
 import { pintarHeader } from "./componentes/Header.js?w=1";
 import { pintarMenu } from "./componentes/Menu.js?w=1";
 import { pintarHome } from "./home/Home.js?w=1";
-import { pintarMapa } from "./mapa/Mapa.js?w=1";
+import { mapaObj } from "./mapa/Mapa.js?w=1";
 import { mostrarHeader } from "./componentes/Header.js?w=1";
 
 correr();
@@ -30,11 +30,12 @@ function pintarContenedores() {
   contenido.mapa = tag("div", document.body);
   contenido.player = tag("div", document.body);
 
-  escogerSeccion();
+  pintarEntrada();  
   pintarHeader();
   pintarMenu();
-  pintarMapa();
-  pintarEntrada();
+  mapaObj.pintarMapa();
+  escogerSeccion();
+  
 }
 
 function escogerSeccion(){
@@ -42,7 +43,7 @@ function escogerSeccion(){
   contenido.mapa.style.visibility = 'hidden';
 
   if(subdirectorio == '' || !subdirectorio){
-    pintarIndicaciones();
+   
   }else if(subdirectorio ==='#/home'){
     mostrarHeader();
     pintarHome();
