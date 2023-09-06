@@ -18,14 +18,41 @@ class MapaObj {
       this.markerOnClick(markerObj);
     });
     this.markers.push(markerObj);
+
+    markerObj.contenedor.addEventListener("mouseover", () => {
+      this.markerOnMouseover(markerObj);
+    });
+
+    markerObj.contenedor.addEventListener("mouseout", () => {
+      this.markerOnmouseout(markerObj);
+    });
+  }
+
+  markerOnMouseover(marker) {
+    if (this.map.getZoom() >= 17) {
+
+      const n = 20;
+      const tituloOr = marker.info.grabacion.titulo;
+      const musicoOr = marker.info.musico.nombre;
+
+      const titulo = (tituloOr.length > n) ? tituloOr.slice(0, n) + '...' :  tituloOr;
+      const musico = (musicoOr.length > n) ? musicoOr.slice(0, n) + '...' :  musicoOr;
+
+      const texto = `${titulo} - <b>${musico}</b>`;
+      contenido.mostrarPopup(marker.contenedor, texto);
+    }
+  }
+
+  markerOnmouseout(marker) {
+    contenido.esconderPopup();
   }
 
   markerOnClick(marker) {
-    //alert(marker.info.titulo);
-
+    contenido.esconderPopup();
+    
     if (this.map.getZoom() < 17) {
       const end = {
-        center: [marker.info.longitud, marker.info.latitud],
+        center: [marker.info.grabacion.longitud, marker.info.grabacion.latitud],
         zoom: 17,
         //bearing: 130,
         pitch: 10,
@@ -37,7 +64,7 @@ class MapaObj {
         essential: true,
       });
     } else {
-      alert(marker.info.titulo);
+      contenido.mostrarInfoGrabacion(marker);
     }
   }
 }
@@ -75,11 +102,9 @@ function pintarMapaGraficos() {
     zoom: 4,
   });
 
-  mapaObj.map.on("zoom", () => {
-    // if (map.getZoom() > zoomThreshold) {
-
-    console.log(mapaObj.map.getZoom());
-  });
+  // mapaObj.map.on("zoom", () => {
+  //   console.log(mapaObj.map.getZoom());
+  // });
 
   mapaObj.bajarDatos();
 }
@@ -88,11 +113,10 @@ function pintarMarkers(data) {
   const thisObj = this;
 
   data.grabaciones.map((grabacion) => {
-    const imagen = data.musicos.filter(
-      (musico) => musico._id === grabacion.musico
-    )[0].imagen;
 
-    const imgSrc = `url(${baseUri}/${imagen})`;
+    const musico = data.musicos.filter(musico => musico._id === grabacion.musico)[0];
+
+    const imgSrc = `url(${baseUri}/${musico.imagen})`;
 
     const el = document.createElement("div");
     const width = 30;
@@ -111,7 +135,11 @@ function pintarMarkers(data) {
 
     let markerObj = {
       contenedor: el,
-      info: grabacion,
+      info: {
+        grabacion,
+        musico
+      },
+
       marker,
     };
 
@@ -119,40 +147,4 @@ function pintarMarkers(data) {
   });
 }
 
-function adjuntarMusicoFx(el, musico, map) {
-  el.addEventListener("click", () => {
-    console.log(musico);
-    // musicos.pintarPerfilInfo(musico);
 
-    // const end = {
-    //   center: [-76.66034692643743, 5.686056820833372],
-    //   zoom: 9,
-    //   //bearing: 130,
-    //   pitch: 10,
-    // };
-
-    // const el = document.createElement("div");
-    // const width = 10;
-    // const height = 10;
-    // el.className = "marker";
-    // el.style.backgroundColor = "red";
-    // el.style.width = `${width}px`;
-    // el.style.height = `${height}px`;
-    // el.style.backgroundSize = "100%";
-
-    // const coordenadas = [-76.60034692643743, 5.72605682083336];
-
-    // // Add markers to the map.
-    // let marker = new mapboxgl.Marker(el).setLngLat(coordenadas).addTo(map);
-
-    // setTimeout(() => {
-    //   marker.remove();
-    // }, 4000);
-
-    // map.flyTo({
-    //   ...end,
-    //   duration: 2000,
-    //   essential: true,
-    // });
-  });
-}

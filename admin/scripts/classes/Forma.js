@@ -1,6 +1,8 @@
 import { tag } from "../utilidades/tag.js?ad=1";
 import { bajarCss } from "../utilidades/css.js?ad=1";
 import { baseUri } from "../../enviroment.js?ad=1";
+import { admin } from "../classes/Admin.js?ad=1";
+import { logout } from "../data/dataAdmin.js?ad=1";
 
 export class Forma {
   contenedor;
@@ -29,6 +31,12 @@ export class Forma {
   }
 
   pintar() {
+
+    if(!admin.info){
+      logout()
+      return;
+    }
+
     const enlace = "./scripts/classes/Forma.css?ad=1";
     bajarCss(enlace, this.dibujar.bind(this));
   }

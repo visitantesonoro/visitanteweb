@@ -3,7 +3,9 @@ export async function bajarCss(estiloSrc, ejecutar) {
 
   await cssReq("GET", enlace);
 
-  ejecutar();
+  if(ejecutar){
+    ejecutar();
+  }
 }
 
 function cssReq(metodo, enlace) {

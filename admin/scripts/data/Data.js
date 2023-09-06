@@ -4,6 +4,7 @@ import { grabarMusico } from "./dataMusico.js?ad=1";
 import { grabarCategoria } from "./dataCategoria.js?ad=1";
 import { grabarTag } from "./dataTag.js?ad=1";
 import { logear } from "./dataAdmin.js?ad=1";
+import { admin } from "../classes/Admin.js?ad=1";
 
 class Data {
   async traerLista(fx, uri) {
@@ -30,8 +31,8 @@ class Data {
     fx();
   }
 
-  async grabarCategoria(info, fx) {   
-    const data = await grabarCategoria(info);  
+  async grabarCategoria(info, fx) {
+    const data = await grabarCategoria(info);
     fx();
   }
 
@@ -40,9 +41,9 @@ class Data {
     fx();
   }
 
-  async logear(usuario, fx){
+  async logear(usuario, fx) {
     const data = await logear(usuario);
-    if(data){
+    if (data) {
       fx();
     }
   }
@@ -50,11 +51,14 @@ class Data {
   async borrarItem(info, fx, uri) {
     const uriFinal = `${baseUri}${uri}${info.id}`;
 
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + admin.info.token,
+    };
+
     const response = await fetch(uriFinal, {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
 
     const responseData = await response.json();

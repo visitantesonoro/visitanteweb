@@ -4,7 +4,7 @@ import { pintarMusicos } from "./Musicos.js?ad=1";
 import { pintarGrabaciones } from "./Grabaciones.js?ad=1";
 import { pintarCategorias } from "./Categorias.js?ad=1";
 import { pintarTags } from "./Tags.js?ad=1";
-import { pintarLogin } from "./Login.js?ad=1";
+import { logout } from "../data/dataAdmin.js?ad=1";
 
 let elPadre;
 
@@ -68,7 +68,6 @@ function dibujarHeader() {
   const spanS = tag("span", divS);
   spanS.innerHTML = "Salir";
   spanS.addEventListener("click", () => {
-    localStorage.removeItem("administrador");
-    pintarLogin();
+    logout();
   });
 }

@@ -1,4 +1,6 @@
 import { baseUri } from "../../enviroment.js?ad=1";
+import { admin } from "../classes/Admin.js?ad=1";
+import { logout } from "./dataAdmin.js?ad=1";
 
 export async function grabarGrabacion(info) {
 
@@ -34,9 +36,21 @@ export async function grabarGrabacion(info) {
   data.append("tags", JSON.stringify(info.tags));
   data.append("audio", audioFile);
 
+  if (!admin.info) {
+    logout();
+    return;
+  }
+
+  const token = admin.info.token;
+
+  const headers = {
+    Authorization: "Bearer " + token,
+  };
+
   const solicitud = await fetch(uri, {
     method: metodo,
     body: data,
+    headers
   });
 
   const respuesta = await solicitud.json();

@@ -1,4 +1,6 @@
 import { baseUri } from "../../enviroment.js?ad=1";
+import { admin } from "../classes/Admin.js?ad=1";
+import { logout } from "./dataAdmin.js?ad=1";
 
 export async function grabarCategoria(info) {
   const uri = !info.id
@@ -11,9 +13,21 @@ export async function grabarCategoria(info) {
   data.append("imagen", info.imagen);
   data.append("descripcion", info.descripcion);
 
+  if (!admin.info) {
+    logout();
+    return;
+  }
+
+  const token = admin.info.token;
+
+  const headers = {
+    Authorization: "Bearer " + token,
+  };
+
   const solicitud = await fetch(uri, {
     method: metodo,
     body: data,
+    headers
   });
 
   const respuesta = await solicitud.json();

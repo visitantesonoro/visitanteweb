@@ -1,0 +1,107 @@
+.popup {
+  position: absolute;
+  left: 0px;
+  top: 200px;
+  z-index: 20;
+  width: auto;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #888;
+  visibility: hidden;
+  padding: 3px 6px;
+  overflow: hidden;
+  border-radius: 2px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+}
+
+.popup-grabacion {
+  position: absolute;
+  right: 30px;
+  top: 80px;
+  z-index: 20;
+  width: 30vw;
+  height: 50vh;
+  min-height: 300px;
+  background-color: rgb(25, 25, 25);
+  border: 1px solid #888;
+  visibility: hidden;
+  border-radius: 20px;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.popup-grabacion > img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  filter: sepia(60%) brightness(40%);
+  object-fit: cover;
+}
+
+.popup-grabacion > div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  color: #fff;
+}
+
+.popup-grabacion-x {
+  padding: 16px 26px;
+  display: flex;
+  justify-content: right;
+}
+
+.popup-grabacion-x div{
+    padding: 30px 5px;
+    border-radius: 50%;
+}
+
+.popup-grabacion-x span {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.popup-grabacion-x span:hover {
+  color: rgb(255, 205, 179);
+}
+
+.popup-grabacion-play {
+  margin: 0px 24px;
+  display: flex;
+  justify-content: left;
+}
+
+.popup-grabacion-play div{
+    background-color: rgb(53, 66, 98);
+    padding: 14px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.popup-grabacion-play div:hover{
+    background-color: rgb(99, 115, 155);
+}
+
+.popup-grabacion-play img {
+
+}
+
+.popup-grabacion h1 {
+  font-weight: bold;
+  margin-top: 16px;
+  margin-left: 30px;
+}
+
+.popup-grabacion p {
+  margin: 10px 30px;
+  font-size: 14px;
+}
+
+.popup-grabacion a {
+  margin: 10px 30px;
+  font-size: 14px;
+  color: rgb(134, 175, 233);
+}

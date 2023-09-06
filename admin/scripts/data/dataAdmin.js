@@ -1,4 +1,6 @@
 import { baseUri } from "../../enviroment.js?ad=1";
+import { admin } from "../classes/Admin.js?ad=1";
+import { pintarLogin } from "../componentes/Login.js?ad=1";
 
 export const logear = async(usuario) =>{
     const direccionLogin = `${baseUri}/admin/administradores/login`;
@@ -20,6 +22,8 @@ export const logear = async(usuario) =>{
     const responseData = await response.json();
 
     if (responseData.adminData) {
+      admin.info = responseData.adminData;
+
       localStorage.setItem(
         "administrador",
         JSON.stringify({
@@ -33,4 +37,10 @@ export const logear = async(usuario) =>{
     } else {
       alert(responseData);
     }
+}
+
+export const logout = ()=>{
+  admin.info = null;
+  localStorage.removeItem("administrador");
+  pintarLogin();
 }

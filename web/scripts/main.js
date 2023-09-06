@@ -4,6 +4,7 @@ import { pintarEntrada } from "./home/Entrada.js?w=1";
 import { pintarHeader } from "./componentes/Header.js?w=1";
 import { pintarMenu } from "./componentes/Menu.js?w=1";
 import { pintarHome } from "./home/Home.js?w=1";
+import { pintarPerfil } from "./componentes/Perfil.js?w=1";
 import { mapaObj } from "./mapa/Mapa.js?w=1";
 import { mostrarHeader } from "./componentes/Header.js?w=1";
 
@@ -29,16 +30,20 @@ function pintarContenedores() {
   contenido.footer = tag("footer", document.body);
   contenido.mapa = tag("div", document.body);
   contenido.player = tag("div", document.body);
+  contenido.popup = tag("div", document.body);
+  contenido.popup.className = "popup";
+  contenido.popupGrabacion = tag("div", document.body);
+  contenido.popupGrabacion.className = "popup-grabacion";
 
   pintarEntrada();  
   pintarHeader();
   pintarMenu();
   mapaObj.pintarMapa();
   escogerSeccion();
-  
 }
 
 function escogerSeccion(){
+
   let subdirectorio = location.hash;
   contenido.mapa.style.visibility = 'hidden';
 
@@ -50,6 +55,10 @@ function escogerSeccion(){
   }else if(subdirectorio ==='#/mapa'){
     mostrarHeader();
     contenido.mapa.style.visibility = 'visible';
+  }else if(subdirectorio.includes("perfil")){
+    const perfilId = location.href.substring(location.href.lastIndexOf('/') + 1)
+    mostrarHeader();
+    pintarPerfil(perfilId);
   }
 }
 
