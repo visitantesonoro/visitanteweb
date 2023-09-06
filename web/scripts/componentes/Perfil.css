@@ -1,0 +1,46 @@
+.perfil {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.perfil-header {
+  display: flex;
+  max-height: 400px;
+  overflow: hidden;
+  background-color: rgb(109, 118, 241);
+  border-radius: 30px;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+
+.perfil-header > div {
+  width: 50%;
+  overflow: hidden;
+}
+
+.perfil-header > div:nth-child(1) {
+  display: flex;
+  justify-content: center;
+}
+
+.perfil-header > div:nth-child(1) div {
+  width: 60%;
+  border: 1px solid greenyellow;
+  overflow: hidden;
+  border-radius: 20px;
+  background-color: black;
+}
+
+.perfil-header > div:nth-child(1) div img {
+  width: 100%; /*width of parent container*/
+  height: 100%; /*height of parent container*/
+  object-fit: contain;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 20px;
+}
+
+.perfil-player{
+
+}

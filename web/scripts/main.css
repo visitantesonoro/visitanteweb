@@ -11,23 +11,30 @@
 }
 
 body {
-  background-color: rgb(66, 66, 66);
   font-family: "Lato", sans-serif;
+  background-color: rgb(66, 66, 66);
 }
 
 main {
   position: relative;
   min-height: 80vh;
+  background-color: rgb(66, 66, 66);
 }
 
 footer {
   min-height: 80px;
-  visibility: hidden;
+  background-color: rgb(66, 66, 66);
+  display:none;
 }
 
 .hero {
   position: relative;
   height: 300px;
+  background-color: rgb(66, 66, 66);
+}
+
+.contenido-info{
+  background-color: rgb(66, 66, 66);
 }
 
 canvas {

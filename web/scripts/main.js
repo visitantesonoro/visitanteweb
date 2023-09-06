@@ -27,6 +27,7 @@ function pintarContenedores() {
   contenido.canvas.width = window.innerWidth;
   contenido.canvas.height = 300;
   contenido.info = tag("section", contenido.main);
+  contenido.info.className = "contenido-info";
   contenido.footer = tag("footer", document.body);
   contenido.mapa = tag("div", document.body);
   contenido.player = tag("div", document.body);

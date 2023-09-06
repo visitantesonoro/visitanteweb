@@ -60,14 +60,15 @@ class Contenido {
     const h1 = tag('h1', divC);
     h1.innerHTML = obj.info.grabacion.titulo;
 
-    const p = tag('p', divC);
-    p.innerHTML = obj.info.grabacion.descripcion;
-
     const a = tag('a', divC);
     a.innerHTML = obj.info.musico.nombre;
     a.addEventListener("click", () => {
-      window.location.href = "#/perfil?";
+      this.esconderInfoGrabacion();
+      window.location.href = "#/perfil/" + obj.info.musico._id;
     })
+
+    const p = tag('p', divC);
+    p.innerHTML = obj.info.grabacion.descripcion;    
     
     this.popupGrabacion.style.visibility = "visible";
   }

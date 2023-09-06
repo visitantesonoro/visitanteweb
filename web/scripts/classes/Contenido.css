@@ -20,7 +20,7 @@
   top: 80px;
   z-index: 20;
   width: 30vw;
-  height: 50vh;
+  height: 70vh;
   min-height: 300px;
   background-color: rgb(25, 25, 25);
   border: 1px solid #888;
@@ -85,10 +85,6 @@
     background-color: rgb(99, 115, 155);
 }
 
-.popup-grabacion-play img {
-
-}
-
 .popup-grabacion h1 {
   font-weight: bold;
   margin-top: 16px;
@@ -98,10 +94,18 @@
 .popup-grabacion p {
   margin: 10px 30px;
   font-size: 14px;
+  height: 30vh;
+  border:1px solid red;
+  overflow: scroll;
 }
 
 .popup-grabacion a {
   margin: 10px 30px;
   font-size: 14px;
   color: rgb(134, 175, 233);
+  cursor:pointer;
+}
+
+.popup-grabacion a:hover{
+  color: rgb(233, 134, 134);
 }
