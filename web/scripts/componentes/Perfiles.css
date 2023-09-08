@@ -1,12 +1,13 @@
 .perfiles {
   background-color: #fff;
   display: flex;
-  justify-content: space-evenly;
+  justify-content:left;
   padding: 2% 1.5% 25%;
+  flex-wrap: wrap;
 }
 
 .perfiles-modulo {
-  width: 28%;
+  width: 25%;
   height: 220px;
   max-height: 220px;
   overflow: hidden;
