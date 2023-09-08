@@ -1,0 +1,40 @@
+.perfiles {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2% 1.5% 25%;
+}
+
+.perfiles-modulo {
+  width: 28%;
+  height: 220px;
+  max-height: 220px;
+  overflow: hidden;
+  position: relative;
+  cursor:pointer;
+  transition: 0.5s;
+}
+
+.perfiles-modulo:hover{
+    filter: blur(0.5px) saturate(5) sepia(90%);
+}
+
+.perfiles-modulo img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  filter: sepia(60%) brightness(40%);
+  object-fit: cover;
+}
+
+.perfiles-modulo h1{
+    position: absolute;
+    width: 100%;
+    left:0px;
+    bottom: 10px;
+    font-size: 25px;
+    color:#fff;
+    text-align: center;
+}

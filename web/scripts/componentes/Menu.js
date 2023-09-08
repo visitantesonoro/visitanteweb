@@ -35,6 +35,8 @@ function dibujarMenu() {
   const aP = tag("a", contenido.nav);
   aP.innerHTML = "Perfiles";
   aP.addEventListener("click", () => {
+    conmutarMenu();
+    window.location.href = "#/perfiles";
     // this.conmutarMenu();
     // if (info.seccion === "mapa") {
     //   mapa.mapa.style.animation = "slide-up 900ms ease-out forwards";

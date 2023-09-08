@@ -5,6 +5,7 @@ import { pintarHeader } from "./componentes/Header.js?w=1";
 import { pintarMenu } from "./componentes/Menu.js?w=1";
 import { pintarHome } from "./home/Home.js?w=1";
 import { pintarPerfil } from "./componentes/Perfil.js?w=1";
+import { pintarPerfiles } from "./componentes/Perfiles.js?w=1";
 import { mapaObj } from "./mapa/Mapa.js?w=1";
 import { mostrarHeader } from "./componentes/Header.js?w=1";
 
@@ -51,13 +52,21 @@ function escogerSeccion(){
   if(subdirectorio == '' || !subdirectorio){
    
   }else if(subdirectorio ==='#/home'){
+    contenido.hero.style.display = "block";
     mostrarHeader();
     pintarHome();
   }else if(subdirectorio ==='#/mapa'){
     window.scrollTo(0, 0);
     mostrarHeader();
     contenido.mapa.style.visibility = 'visible';
+  }else if(subdirectorio ==='#/perfiles'){
+    contenido.hero.style.display = "block";
+    contenido.hero.style.visibility = 'visible';
+    window.scrollTo(0, 0);
+    mostrarHeader();
+    pintarPerfiles();
   }else if(subdirectorio.includes("perfil")){
+    contenido.hero.style.display = "none";
     const perfilUrl = location.href.substring(location.href.lastIndexOf('/') + 1)
     mostrarHeader();
     pintarPerfil(perfilUrl);
