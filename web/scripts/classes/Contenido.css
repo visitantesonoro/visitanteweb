@@ -36,7 +36,7 @@
   height: 100%;
   left: 0px;
   top: 0px;
-  filter: sepia(60%) brightness(40%);
+  filter: sepia(60%) brightness(35%);
   object-fit: cover;
 }
 
@@ -91,21 +91,28 @@
   margin-left: 30px;
 }
 
-.popup-grabacion p {
-  margin: 10px 30px;
-  font-size: 14px;
-  height: 30vh;
-  border:1px solid red;
-  overflow: scroll;
+.popup-grabacion-info{
+  padding: 10px 30px;
 }
 
-.popup-grabacion a {
-  margin: 10px 30px;
-  font-size: 14px;
-  color: rgb(134, 175, 233);
+.popup-grabacion-info a {
+  font-size: 16px;
+  color: rgb(116, 169, 255);
   cursor:pointer;
 }
 
-.popup-grabacion a:hover{
+.popup-grabacion-info a:hover{
   color: rgb(233, 134, 134);
 }
+
+.popup-grabacion-info span {
+  font-size: 14px;
+}
+
+.popup-grabacion p {
+  margin: 10px 30px;
+  font-size: 16px;
+  overflow: scroll;
+}
+
+

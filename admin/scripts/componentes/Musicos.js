@@ -17,6 +17,7 @@ function traerDataMusicos() {
 }
 
 function dibujarMusicos(info) {
+
   const div = tag("div", contenido.main);
   div.className = "musicos";
 

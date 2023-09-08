@@ -3,9 +3,10 @@ import { tag } from "../utilidades/tag.js?w=1";
 import { contenido } from "../classes/Contenido.js?w=1";
 import { data } from "../data/Data.js?w=1";
 import { baseUri } from '../../enviroment.js?w=1';
+import { Grabaciones } from "../classes/Grabaciones.js?w=1";
 
-export function pintarPerfil(id) {
-  contenido.perfilId = id;
+export function pintarPerfil(url) {
+  contenido.perfilUrl = url;
 
   if (contenido.perfilCss) {
     traerPefilData();
@@ -17,7 +18,7 @@ export function pintarPerfil(id) {
 
 function traerPefilData() {
   contenido.perfilCss = true;
-  data.traerItem(contenido.perfilId, dibujarPerfil, "/admin/musicos/");
+  data.traerItem(contenido.perfilUrl, dibujarPerfil, "/admin/musicos/url/");
 }
 
 function dibujarPerfil(data) {
@@ -57,11 +58,16 @@ function pintarMusico(el, data){
 
 function pintarPlayer(el, data){
 
-  data.grabaciones.map(grabacion =>{
-    const div = tag("div", el);
+  const divContador = tag("div", el);
+  divContador.className = 'perfil-player-contador';
 
-    const p = tag("p", div);
-    p.innerHTML = grabacion.titulo;
-  })
+  const p = tag("p", divContador);
+  p.innerHTML = `${data.grabaciones.length} grabaciones`;
+
+  const divPlayer = tag("div", el);
+  divPlayer.className = 'perfil-player-grabaciones';
+
+  const grabaciones = new Grabaciones(data.grabaciones);
+  grabaciones.pintarLista(divPlayer)
 
 }

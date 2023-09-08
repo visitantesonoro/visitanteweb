@@ -1,5 +1,5 @@
 export async function bajarCss(estiloSrc, ejecutar) {
-  const enlace = `${estiloSrc}?ad=1`;
+  const enlace = `${estiloSrc}?w=1`;
 
   await cssReq("GET", enlace);
 

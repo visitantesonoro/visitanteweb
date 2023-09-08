@@ -40,5 +40,11 @@ export async function grabarMusico(info) {
 
   const respuesta = await solicitud.json();
 
+  if(respuesta.error){
+    alert(respuesta.mensaje);
+
+    return;
+  }
+
   return respuesta;
 }

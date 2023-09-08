@@ -1,6 +1,7 @@
-import { tag } from '../utilidades/tag.js?w=1';
-import { baseUri } from '../../enviroment.js?w=1';
-import { bajarCss } from '../utilidades/css.js?w=1';
+import { tag } from "../utilidades/tag.js?w=1";
+import { baseUri } from "../../enviroment.js?w=1";
+import { bajarCss } from "../utilidades/css.js?w=1";
+import { formatearFecha } from "../utilidades/fecha.js?w=1";
 
 class Contenido {
   header;
@@ -15,7 +16,7 @@ class Contenido {
   perfilId = 0;
   perfilCss = false;
 
-  constructor(){
+  constructor() {
     const enlace = "./scripts/classes/Contenido.css?w=1";
     bajarCss(enlace, null);
   }
@@ -23,8 +24,8 @@ class Contenido {
   mostrarPopup(el, texto) {
     this.popup.innerHTML = texto;
     const coord = el.getBoundingClientRect();
-    this.popup.style.left = coord.x - 105 + 'px';
-    this.popup.style.top = coord.y - 40 + 'px';
+    this.popup.style.left = coord.x - 105 + "px";
+    this.popup.style.top = coord.y - 40 + "px";
     this.popup.style.visibility = "visible";
   }
 
@@ -32,20 +33,20 @@ class Contenido {
     this.popup.style.visibility = "hidden";
   }
 
-  mostrarInfoGrabacion(obj){
-    this.popupGrabacion.innerHTML = '';
+  mostrarInfoGrabacion(obj) {
+    this.popupGrabacion.innerHTML = "";
 
-    const img = tag('img', this.popupGrabacion);
+    const img = tag("img", this.popupGrabacion);
     img.src = `${baseUri}/${obj.info.musico.imagen}`;
 
-    const div = tag('div', this.popupGrabacion);
+    const div = tag("div", this.popupGrabacion);
 
-    const divX = tag('div', div);
+    const divX = tag("div", div);
     divX.className = "popup-grabacion-x";
 
     const span = tag("span", divX);
     span.innerHTML = "X";
-    span.addEventListener('click', this.esconderInfoGrabacion.bind(this));
+    span.addEventListener("click", this.esconderInfoGrabacion.bind(this));
 
     const divPlay = tag("div", div);
     divPlay.className = "popup-grabacion-play";
@@ -53,27 +54,36 @@ class Contenido {
     const divPlayC = tag("div", divPlay);
 
     const imgPlay = tag("img", divPlayC);
-    imgPlay.src = './assets/imgs/player/play.png';
+    imgPlay.src = "./assets/imgs/player/play.png";
 
     const divC = tag("div", div);
 
-    const h1 = tag('h1', divC);
+    const h1 = tag("h1", divC);
     h1.innerHTML = obj.info.grabacion.titulo;
 
-    const a = tag('a', divC);
+    const divInfo = tag("div", divC);
+    divInfo.className = "popup-grabacion-info";
+
+    const a = tag("a", divInfo);
     a.innerHTML = obj.info.musico.nombre;
     a.addEventListener("click", () => {
       this.esconderInfoGrabacion();
-      window.location.href = "#/perfil/" + obj.info.musico._id;
-    })
+      window.location.href = "#/perfil/" + obj.info.musico.url;
+    });
 
-    const p = tag('p', divC);
-    p.innerHTML = obj.info.grabacion.descripcion;    
-    
+    const fechaStr = formatearFecha(obj.info.grabacion.fecha);
+
+    const spanI = tag("span", divInfo);
+    spanI.innerHTML = `<br>${fechaStr} - ${obj.info.grabacion.lugar}`;
+
+    const texto = obj.info.grabacion.descripcion;
+    const p = tag("p", divC);
+    p.innerHTML = texto;
+
     this.popupGrabacion.style.visibility = "visible";
   }
 
-  esconderInfoGrabacion(){
+  esconderInfoGrabacion() {
     this.popupGrabacion.style.visibility = "hidden";
   }
 }

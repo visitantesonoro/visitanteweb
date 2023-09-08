@@ -54,12 +54,13 @@ function escogerSeccion(){
     mostrarHeader();
     pintarHome();
   }else if(subdirectorio ==='#/mapa'){
+    window.scrollTo(0, 0);
     mostrarHeader();
     contenido.mapa.style.visibility = 'visible';
   }else if(subdirectorio.includes("perfil")){
-    const perfilId = location.href.substring(location.href.lastIndexOf('/') + 1)
+    const perfilUrl = location.href.substring(location.href.lastIndexOf('/') + 1)
     mostrarHeader();
-    pintarPerfil(perfilId);
+    pintarPerfil(perfilUrl);
   }
 }
 
