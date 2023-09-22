@@ -60,6 +60,10 @@ class Contenido {
 
     const h1 = tag("h1", divC);
     h1.innerHTML = obj.info.grabacion.titulo;
+    h1.addEventListener("click", ()=>{
+      this.esconderInfoGrabacion();
+      window.location.href = "#/grabaciones/" + obj.info.grabacion.url;
+    })
 
     const divInfo = tag("div", divC);
     divInfo.className = "popup-grabacion-info";

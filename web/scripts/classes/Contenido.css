@@ -89,6 +89,11 @@
   font-weight: bold;
   margin-top: 16px;
   margin-left: 30px;
+  cursor: pointer;
+}
+
+.popup-grabacion h1:hover{
+  color: rgb(233, 134, 134);
 }
 
 .popup-grabacion-info{

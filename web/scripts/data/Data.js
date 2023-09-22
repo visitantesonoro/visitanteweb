@@ -12,6 +12,12 @@ class Data {
     const uriFinal = `${baseUri}${uri}${id}`;
     const response = await fetch(uriFinal);
     const datos = await response.json();
+
+    if (datos.error) {
+      alert(datos.mensaje);
+      return;
+    }
+
     fx(datos);
   }
 }

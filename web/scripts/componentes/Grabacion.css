@@ -1,0 +1,17 @@
+.grabacion {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 300px;
+  background-color: rgb(25, 25, 25);
+  font-size: 12px;
+  overflow: hidden;
+  animation: aparecer 0.7s;
+}
+
+.grabacion-enlaces {
+  min-height: 400px;
+  background-color: #fff;
+  padding-bottom: 200px;
+  animation: aparecer 1s;
+}

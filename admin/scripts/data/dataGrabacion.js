@@ -55,5 +55,9 @@ export async function grabarGrabacion(info) {
 
   const respuesta = await solicitud.json();
 
+  if(respuesta.error){
+    alert(respuesta.mensaje);
+  }
+
   return respuesta;
 }

@@ -1,0 +1,50 @@
+.grabaciones-caja {
+  padding: 2% 4%;
+  animation: aparecer 0.7s;
+}
+
+.grabaciones-caja > h1 {
+  font-size: 28px;
+  color: #5c5c5c;
+}
+
+.grabaciones-caja > div {
+  margin-top: 20px;
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.grabaciones-caja > div > div {
+  width: 260px;
+  height: 220px;
+  background-color: rgb(53, 66, 98);
+  padding: 10px;
+  margin: 20px 14px;
+  border-radius: 12px;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+
+.grabaciones-caja > div > div:hover {
+  background-color: rgb(99, 115, 155);
+}
+
+.grabaciones-caja > div > div div {
+  width: 100%;
+}
+
+.grabaciones-caja > div > div h2 {
+  color: #fff;
+  font-size: 18px;
+}
+
+.grabaciones-caja > div > div p {
+  color: #dfdfdf;
+}

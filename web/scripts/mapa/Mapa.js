@@ -29,7 +29,7 @@ class MapaObj {
   }
 
   markerOnMouseover(marker) {
-    if (this.map.getZoom() >= 17) {
+    if (this.map.getZoom() >= 14) {
 
       const n = 20;
       const tituloOr = marker.info.grabacion.titulo;
@@ -50,10 +50,10 @@ class MapaObj {
   markerOnClick(marker) {
     contenido.esconderPopup();
     
-    if (this.map.getZoom() < 17) {
+    if (this.map.getZoom() < 14) {
       const end = {
         center: [marker.info.grabacion.longitud, marker.info.grabacion.latitud],
-        zoom: 17,
+        zoom: 14,
         //bearing: 130,
         pitch: 10,
       };
@@ -114,7 +114,7 @@ function pintarMarkers(data) {
 
   data.grabaciones.map((grabacion) => {
 
-    const musico = data.musicos.filter(musico => musico._id === grabacion.musico)[0];
+    const musico = data.musicos.find(musico => musico._id === grabacion.musico);
 
     const imgSrc = `url(${baseUri}/${musico.imagen})`;
 

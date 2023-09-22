@@ -3,6 +3,7 @@ import { tag } from "../utilidades/tag.js?w=1";
 import { contenido } from "../classes/Contenido.js?w=1";
 import { textos } from "../utilidades/textos.js?w=1";
 import { mostrarHeader } from "../componentes/Header.js?w=1";
+import { player } from "../player/Player.js?w=1";
 import { pintarHome } from "./Home.js?w=1";
 
 export function pintarEntrada() {
@@ -29,7 +30,7 @@ function dibujarLogo() {
 
   let subdirectorio = location.hash;
 
-  if(subdirectorio == '' || !subdirectorio){
+  if (subdirectorio == "" || !subdirectorio) {
     pintarIndicaciones();
   }
 }
@@ -49,12 +50,22 @@ function pintarIndicaciones() {
 }
 
 function onClickLogo() {
-    mostrarHeader();
-    window.location.href = "#/home";
-    // player.yaHuboClick = true;
-    // if (this.pintarInicio) {
-    //   info.pintarPaginaInicio();
-    // }
-    // player.ponerCancionRandom();
-    // player.pintarInfoCancion();
+  mostrarHeader();
+  window.location.href = "#/home";
+
+  if (!player.yaHuboClick) {
+    player.yaHuboClick = true;
+  } 
+
+  player.musicoS = null;
+  player.actualizar();
+
+ 
+
+  // player.yaHuboClick = true;
+  // if (this.pintarInicio) {
+  //   info.pintarPaginaInicio();
+  // }
+  // player.ponerCancionRandom();
+  // player.pintarInfoCancion();
 }

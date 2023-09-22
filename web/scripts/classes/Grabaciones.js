@@ -36,12 +36,17 @@ class Grabacion {
   }
 
   async pintar(el) {
+    this.el = el;
     this.duracion = await obtenerDuracion(this.info.audio);
+    this.organizarInfo();
+    this.dibujarFila();
+  }
 
+  organizarInfo() {
     this.camposObj = [];
 
     for (const prop in this.info) {
-      if (this.campos.indexOf(prop) >= 0) {
+      if (this.campos.includes(prop)) {
         let valor;
         let pos;
 
@@ -59,19 +64,16 @@ class Grabacion {
           pos = 1;
         }
 
-        const campo = {
-          valor,
-          pos,
-        };
-
-        this.camposObj.push(campo);
+        this.camposObj.push({valor, pos});
       }
     }
+  }
 
+  dibujarFila() {
     this.camposObj
       .sort((c1, c2) => c1.pos - c2.pos)
       .map((campo) => {
-        const p = tag("p", el);
+        const p = tag("p", this.el);
         p.innerHTML = campo.valor;
       });
   }

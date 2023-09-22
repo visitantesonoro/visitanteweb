@@ -1,0 +1,63 @@
+.grabacion-info {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.grabacion-info-musico-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  filter: sepia(60%) brightness(35%);
+  object-fit: cover;
+}
+
+.grabacion-info-play-img {
+  position: absolute;
+  left: 30%;
+  top: 20%;
+  width: 80px;
+  padding: 16px 10px 16px 14px;
+  background-color: rgb(53, 66, 98);
+  border-radius: 50%;
+}
+
+.grabacion-info-titulo {
+  position: absolute;
+  color: #fff;
+  left: 40%;
+  top: 16%;
+  width: 40%;
+  margin: 0px;
+}
+
+.grabacion-info-titulo h1 {
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.grabacion-info-titulo h2 {
+  font-size: 22px;
+  color: rgb(116, 169, 255);
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.grabacion-info-titulo p {
+  font-size: 14px;
+}
+
+.grabacion-info-descripcion {
+  position: absolute;
+  color: #fff;
+  left: 20%;
+  top: 60%;
+  width: 60%;
+  margin: 0px;
+  font-size: 1.3rem;
+}
