@@ -1,13 +1,15 @@
 import { tag } from "../utilidades/tag.js?w=1";
 import { bajarCss } from "../utilidades/css.js?w=1";
-import { baseUri } from "../../enviroment.js?=w=1";
-import { formatearFecha } from "../utilidades/fecha.js?w=1";
+import { player } from "../player/Player.js?w=1";
+
+// import { baseUri } from "../../enviroment.js?=w=1";
+// import { formatearFecha } from "../utilidades/fecha.js?w=1";
 
 export class GrabacionCaja {
-  constructor(contenedor, data, estilo) {
+  constructor(contenedor, data, grabacionS) {
     this.contenedor = contenedor;
     this.data = data;
-    this.estilo = estilo;
+    this.grabacionS = grabacionS;
 
     const enlace = "./scripts/classes/GrabacionCaja.css?w=1";
     bajarCss(enlace, null);
@@ -27,21 +29,30 @@ export class GrabacionCaja {
     const divC = tag("div", divG);
 
     for (let grabacion of this.data) {
-      const div = tag("div", divC);
-      div.addEventListener("click", () => {
-        window.location.href = "#/grabaciones/" + grabacion.url;
-      });
+      if (grabacion._id !== this.grabacionS) {
+        const div = tag("div", divC);
 
-      const divPlayC = tag("div", div);
+        const divPlayC = tag("div", div);
 
-      const imgPlay = tag("img", divPlayC);
-      imgPlay.src = "./assets/imgs/player/play.png";
+        const imgPlay = tag("img", divPlayC);
+        imgPlay.src = "./assets/imgs/player/play.png";
+        imgPlay.addEventListener("click", () => {
+          player.ponerASonarDesdeComponente(
+            imgPlay,
+            grabacion.musico,
+            grabacion.url
+          );
+        });
 
-      const h2 = tag("h2", div);
-      h2.innerHTML = grabacion.titulo;
+        const h2 = tag("h2", div);
+        h2.innerHTML = grabacion.titulo;
+        h2.addEventListener("click", () => {
+          window.location.href = "#/grabaciones/" + grabacion.url;
+        });
 
-      const p = tag("p", div);
-      p.innerHTML = grabacion.lugar;
+        const p = tag("p", div);
+        p.innerHTML = grabacion.lugar;
+      }
     }
   }
 }

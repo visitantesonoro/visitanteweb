@@ -41,15 +41,16 @@ function dibujarGrabacion(data) {
 }
 
 function dibujarGrabacionEnlaces(el, data) {
+
   const divM = tag("div", el);
 
-  const grabacionesCajaMusico = new GrabacionCaja(divM, data.grabacionesMusico);
+  const grabacionesCajaMusico = new GrabacionCaja(divM, data.grabacionesMusico, data.grabacion._id);
   grabacionesCajaMusico.titulo = "Más grabaciones de " + data.musico.nombre;
   grabacionesCajaMusico.pintar();
 
   const divC = tag("div", el);
 
-  const grabacionesCajaCategoria = new GrabacionCaja(divC, data.grabacionesCategoria);
+  const grabacionesCajaCategoria = new GrabacionCaja(divC, data.grabacionesCategoria, data.grabacion._id);
   grabacionesCajaCategoria.titulo = "Más grabaciones de " + data.categoria.titulo;
   grabacionesCajaCategoria.pintar();
 }

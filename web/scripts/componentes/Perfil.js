@@ -68,6 +68,6 @@ function pintarPlayer(el, data){
   divPlayer.className = 'perfil-player-grabaciones';
 
   const grabaciones = new Grabaciones(data.grabaciones);
-  grabaciones.pintarLista(divPlayer)
+  grabaciones.pintarLista(divPlayer);
 
 }

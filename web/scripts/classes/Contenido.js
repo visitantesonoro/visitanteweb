@@ -2,6 +2,7 @@ import { tag } from "../utilidades/tag.js?w=1";
 import { baseUri } from "../../enviroment.js?w=1";
 import { bajarCss } from "../utilidades/css.js?w=1";
 import { formatearFecha } from "../utilidades/fecha.js?w=1";
+import { player } from "../player/Player.js?w=1";
 
 class Contenido {
   header;
@@ -55,6 +56,13 @@ class Contenido {
 
     const imgPlay = tag("img", divPlayC);
     imgPlay.src = "./assets/imgs/player/play.png";
+    imgPlay.addEventListener("click", () => {
+      player.ponerASonarDesdeComponente(
+        imgPlay,
+        obj.info.musico._id,
+        obj.info.grabacion.url
+      );
+    });
 
     const divC = tag("div", div);
 

@@ -18,11 +18,11 @@
 .grabaciones-caja > div > div {
   width: 260px;
   height: 220px;
-  background-color: rgb(53, 66, 98);
+  background-color: rgb(249, 249, 249);
   padding: 10px;
   margin: 20px 14px;
   border-radius: 12px;
-  color: #fff;
+  color: #616161;
   text-align: center;
   display: flex;
   flex-direction: row;
@@ -32,19 +32,31 @@
   cursor: pointer;
 }
 
-.grabaciones-caja > div > div:hover {
-  background-color: rgb(99, 115, 155);
-}
-
 .grabaciones-caja > div > div div {
   width: 100%;
 }
 
+.grabaciones-caja > div > div img {
+  padding: 12px;
+  background-color: rgb(53, 66, 98);
+  border-radius: 20%;
+  transition: 0.7s;
+  width: 20%;
+}
+
+.grabaciones-caja > div > div img:hover {
+
+}
+
 .grabaciones-caja > div > div h2 {
-  color: #fff;
   font-size: 18px;
+  transition: 0.7s;
+}
+
+.grabaciones-caja > div > div h2:hover {
+  color: #e36565 !important;
 }
 
 .grabaciones-caja > div > div p {
-  color: #dfdfdf;
+ 
 }

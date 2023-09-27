@@ -1,7 +1,6 @@
-import { bajarCss } from "../utilidades/css.js?w=1";
-import { tag } from "../utilidades/tag.js?w=1";
-import { contenido } from "../classes/Contenido.js?w=1";
+import { pintarPlayer } from "./PlayerPintar.js?w=1";
 import { playerActualizar } from "./PlayerActualizar.js?w=1";
+import { pintarCanvas, animarFrecuencias } from "./PlayerCanvas.js?w=1";
 
 class Player {
   yaHuboClick = false;
@@ -9,130 +8,89 @@ class Player {
   musicoS = null;
   grabacionS = null;
   estaEnPausa = true;
-  volumen = 0.2;
+  volumen = 0.5;
   activo = false;
+  contador = 0;
+  imgPlayS = null;
+  fila = null;
 
   pintar = pintarPlayer;
-  pintarInfoCancion = pintarInfoCancion;
-  pintarCentroPlayer = pintarCentroPlayer;
-  pintarVolumen = pintarVolumen;
   actualizar = playerActualizar;
+  organizarAudioCtx = organizarAudioCtx;
   conmutarPlay = conmutarPlay;
-  ponerPlay = ponerPlay;
+  ponerASonar = ponerASonar;
+  ponerASonarDesdeComponente = ponerASonarDesdeComponente;
+  ponerASonarDesdePlaylist = ponerASonarDesdePlaylist;
+  pintarCanvas = pintarCanvas;
+  animarFrecuencias = animarFrecuencias;
+
+  onClickMusico = ()=>{
+    window.location.href = "#/perfil/" + this.musicoS.url;
+  }
 }
 
 export const player = new Player();
 
-function pintarPlayer() {
-  const enlace = "./scripts/player/Player.css?w=1";
-  bajarCss(enlace, dibujarPlayer);
+function ponerASonarDesdePlaylist(el, musicoId, grabacionUrl) {
+  if (this.fila === el) {
+    if (this.activo) {
+      this.fila.className = "";
+    } else {
+      this.fila.className = "";
+    }
+
+    this.conmutarPlay();
+    return;
+  }
+
+  if (this.fila) {
+    this.fila.className = "";
+  }
+
+  this.fila = el;
+  this.fila.className = "grabaciones-listaS";
+
+  this.musicoId = musicoId;
+  this.grabacionUrl = grabacionUrl;
+  this.actualizar();
+  this.activo = false;
+  this.conmutarPlay();
 }
 
-function dibujarPlayer() {
-  contenido.player.className = "player";
+function ponerASonarDesdeComponente(el, musicoId, grabacionUrl) {
+  if (this.imgPlayS === el) {
+    if (this.activo) {
+      this.imgPlayS.src = "./assets/imgs/player/play.png";
+    } else {
+      this.imgPlayS.src = "./assets/imgs/player/pause.png";
+    }
 
-  player.infoGrabacionC = tag("div", contenido.player);
-  player.infoGrabacionC.className = "player-info";
-  player.pintarInfoCancion();
+    this.conmutarPlay();
+    return;
+  }
 
-  player.pC = tag("div", contenido.player);
-  player.pC.className = "player-centro";
-  player.pintarCentroPlayer();
+  if (this.imgPlayS) {
+    this.imgPlayS.src = "./assets/imgs/player/play.png";
+  }
 
-  player.pR = tag("div", contenido.player);
-  player.pR.className = "player-volumen";
+  this.imgPlayS = el;
+  this.imgPlayS.src = "./assets/imgs/player/pause.png";
 
-  player.pintarVolumen();
-}
-
-function pintarInfoCancion() {
-  player.infoGrabacionC.innerHTML = "";
-
-  player.tituloCancion = tag("h2", player.infoGrabacionC);
-  player.tituloCancion.innerHTML = player.grabacionS
-    ? player.grabacionS.nombre
-    : "Título";
-
-  player.musico = tag("p", player.infoGrabacionC);
-  player.musico.className = "player-enlace";
-  player.musico.innerHTML = player.musicoS ? player.musicoS.nombre : "Músico";
-  //musico.addEventListener('click', this.mostrarPerfil.bind(this))
-
-  const infoCancion = tag("p", player.infoGrabacionC);
-
-  player.lugar = tag("span", infoCancion);
-  player.lugar.innerHTML = player.musicoS
-    ? this.musicoS.lugar.nombre + ", "
-    : "Lugar , ";
-
-  const fechaObj = player.grabacionS
-    ? new Date(player.grabacionS.fecha)
-    : new Date();
-
-  player.fecha = tag("span", infoCancion);
-  player.fecha.innerHTML = fechaObj.toLocaleDateString();
-}
-
-function pintarCentroPlayer() {
-  const centroTop = tag("div", player.pC);
-  centroTop.className = "player-controles";
-
-  const imgPlay = player.yaHuboClick
-    ? "./assets/imgs/player/pause.png"
-    : "./assets/imgs/player/play.png";
-
-  const anterior = tag("img", centroTop);
-  anterior.src = "./assets/imgs/player/anterior.png";
-
-  const playImg = tag("img", centroTop);
-  playImg.src = imgPlay;
-  playImg.addEventListener("click", () => {
-    player.conmutarPlay();
-  });
-
-  player.playImg = playImg;
-
-  const siguiente = tag("img", centroTop);
-  siguiente.src = "./assets/imgs/player/siguiente.png";
-
-  const centroDuracion = tag("div", player.pC);
-  centroDuracion.className = "player-duracion";
-
-  player.tiempo = tag("div", centroDuracion);
-  player.tiempo.innerHTML = "00:00";
-
-  const lineaContenedor = tag("div", centroDuracion);
-
-  const inputRange = tag("input", lineaContenedor);
-  inputRange.className = "progreso";
-  inputRange.type = "range";
-  inputRange.max = "100";
-  inputRange.value = "0";
-
-  player.progreso = inputRange;
-
-  player.duracion = tag("div", centroDuracion);
-  player.duracion.innerHTML = "3:21";
-}
-
-function pintarVolumen() {
-  const divImg = tag("div", player.pR);
-
-  const volImg = tag("img", divImg);
-  volImg.src = "./assets/imgs/player/volumen.png";
-
-  const divVol = tag("div", player.pR);
-
-  const inputRange = tag("input", divVol);
-  inputRange.className = "volumen";
-  inputRange.type = "range";
-  inputRange.max = 100;
-  inputRange.value = player.volumen;
-
-  player.volumenRango = inputRange;
+  this.musicoId = musicoId;
+  this.grabacionUrl = grabacionUrl;
+  this.actualizar();
+  this.activo = false;
+  this.conmutarPlay();
 }
 
 async function conmutarPlay() {
+  if (player.primeraVez) {
+    player.primeraVez = false;
+    player.pintarCanvas();
+    player.ctx = new AudioContext();
+    player.organizarAudioCtx();
+  }
+
   if (player.ctx.state === "suspended") {
     await player.ctx.resume();
   }
@@ -142,13 +100,33 @@ async function conmutarPlay() {
     player.activo = false;
     player.playImg.src = "./assets/imgs/player/play.png";
   } else {
-    ponerPlay();
+    ponerASonar();
   }
 }
 
-async function ponerPlay() {
+async function ponerASonar() {
   await player.audio.play();
   player.activo = true;
   player.playImg.src = "./assets/imgs/player/pause.png";
-  //player.actualizarFrecuencia();
+  player.animarFrecuencias();
+}
+
+function organizarAudioCtx() {
+  player.cancion = player.ctx.createMediaElementSource(player.audio);
+  player.gainNode = player.ctx.createGain();
+  player.gainNode.gain.value = player.volumen;
+  player.analista = player.ctx.createAnalyser();
+  player.analista.fftSize = 2048;
+  player.bufferLength = player.analista.frequencyBinCount;
+  player.dataArray = new Uint8Array(player.bufferLength);
+  player.analista.getByteFrequencyData(player.dataArray);
+
+  player.cancion
+    .connect(player.gainNode)
+    .connect(player.analista)
+    .connect(player.ctx.destination);
+
+  if (player.activo) {
+    player.ponerASonar();
+  }
 }

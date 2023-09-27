@@ -3,57 +3,18 @@ import { data } from "../data/Data.js?w=1";
 import { baseUri } from "../../enviroment.js?w=1";
 
 export function playerActualizar() {
-  if (player.primeraVez) {
-    player.primeraVez = false;
-    crearAudioContext();
-  } else {
-    traerGrabacion();
-  }
-}
-
-function crearAudioContext() {
-  player.audio = new Audio();
-  player.audio.crossOrigin = "anonymous";
-  document.body.appendChild(player.audio);
-
-  player.ctx = new AudioContext();
-
-  organizarEventos();
-
   traerGrabacion();
 }
 
 function traerGrabacion() {
-  if (!player.musicoS) {
-    data.traerItem(0, ponerASonar, "/admin/grabaciones/random/");
+  if (!player.musicoId) {
+    data.traerItem(0, actualizarInfoPlayer, "/admin/grabaciones/random/");
   } else {
-    console.log("traer grabación musico");
+    data.traerItem(player.grabacionUrl, actualizarInfoPlayer, "/admin/grabaciones/url/");
   }
 }
 
-function organizarEventos() {
-  player.audio.addEventListener("loadedmetadata", () => {
-    actualizarTiempo(player.audio.currentTime);
-    player.progreso.max = player.audio.duration;
-  });
-
-  player.audio.addEventListener("timeupdate", () => {
-    actualizarTiempo(player.audio.currentTime);
-  });
-
-  player.audio.addEventListener("ended", () => {
-    player.conmutarPlay();
-  });
-
-  // player.progreso.addEventListener("input", () => {
-  //   player.moverA(player.progreso.value);
-  // });
-
-  // player.volumenRango.addEventListener("input", player.cambiarVolumen.bind(player));
-}
-
-function ponerASonar(data) {
-  actualizarInfoPlayer(data);
+function actualizarInfoPlayer(data) {
 
   if (player.audio) {
     player.audio.pause();
@@ -67,26 +28,10 @@ function ponerASonar(data) {
 
   organizarEventos();
 
-  player.cancion = player.ctx.createMediaElementSource(player.audio);
-  player.gainNode = player.ctx.createGain();
-  player.gainNode.gain.value = player.volumen;
-  player.analista = player.ctx.createAnalyser();
-  player.analista.fftSize = 2048;
-  player.bufferLength = player.analista.frequencyBinCount;
-  player.dataArray = new Uint8Array(player.bufferLength);
-  player.analista.getByteFrequencyData(player.dataArray);
-
-  player.cancion
-    .connect(player.gainNode)
-    .connect(player.analista)
-    .connect(player.ctx.destination);
-
-  if(player.activo){
-    player.ponerPlay();
+  if(player.ctx){
+    player.organizarAudioCtx();
   }
-}
 
-function actualizarInfoPlayer(data) {
   player.grabacionS = data.grabacion;
   player.musicoS = data.musico;
 
@@ -100,6 +45,7 @@ function actualizarInfoPlayer(data) {
 
   player.fecha.innerHTML = ` - ${fechaObj.toLocaleDateString()}`;
 }
+
 
 function actualizarTiempo(tiempo) {
   player.tiempoActual = formatearTiempo(tiempo);
@@ -118,4 +64,19 @@ function formatearTiempo(time) {
   const min = parseInt(`${(time / 60) % 60}`, 10);
 
   return `${min}:${secs}`;
+}
+
+function organizarEventos() {
+  player.audio.addEventListener("loadedmetadata", () => {
+    actualizarTiempo(player.audio.currentTime);
+    player.progreso.max = player.audio.duration;
+  });
+
+  player.audio.addEventListener("timeupdate", () => {
+    actualizarTiempo(player.audio.currentTime);
+  });
+
+  player.audio.addEventListener("ended", () => {
+    player.conmutarPlay();
+  });
 }

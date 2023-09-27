@@ -38,3 +38,11 @@
 .grabaciones-lista>div>p:nth-child(2){
     width:40%;
 }
+
+.grabaciones-listaS{
+    background-color: rgb(71, 99, 168)!important;
+}
+
+.grabaciones-listaS:hover{
+    background-color: rgb(53, 66, 98)!important;
+}

@@ -32,6 +32,7 @@ function pintarContenedores() {
   contenido.info.className = "contenido-info";
   contenido.footer = tag("footer", document.body);
   contenido.mapa = tag("div", document.body);
+  contenido.mapaNavegacion = tag("div", document.body);
   contenido.player = tag("div", document.body);
   contenido.popup = tag("div", document.body);
   contenido.popup.className = "popup";
@@ -55,10 +56,6 @@ function escogerSeccion() {
   contenido.mapa.style.visibility = "hidden";
   contenido.info.innerHTML = "";
   contenido.popupLoading.style.visibility = "visible";
-
-  // if (player.yaHuboClick) {
-  //   player.actualizar();
-  // }
 
   setTimeout(() => {
     if (subdirectorio == "" || !subdirectorio) {

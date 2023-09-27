@@ -84,6 +84,7 @@ function pintarMapa() {
 
 function dibujarMapa() {
   contenido.mapa.className = "mapa";
+  contenido.mapaNavegacion.className = "mapa-navegacion";
 
   const div = tag("div", contenido.mapa);
   div.id = "map";
