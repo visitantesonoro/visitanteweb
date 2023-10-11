@@ -1,17 +1,17 @@
-import { tag } from "./utilidades/tag.js?w=5";
-import { contenido } from "./classes/Contenido.js?w=5";
-import { pintarEntrada } from "./home/Entrada.js?w=5";
-import { pintarHeader } from "./componentes/Header.js?w=5";
-import { pintarMenu } from "./componentes/Menu.js?w=5";
-import { pintarHome } from "./home/Home.js?w=5";
-import { pintarPerfil } from "./componentes/Perfil.js?w=5";
-import { pintarPerfiles } from "./componentes/Perfiles.js?w=5";
-import { pintarCatalogo } from "./componentes/Catalogo.js?w=5";
-import { pintarGrabacion } from "./componentes/Grabacion.js?w=5";
-import { pintarPlanes } from "./home/Planes.js?w=5";
-import { player } from "./player/Player.js?w=5";
-import { mapaObj } from "./mapa/Mapa.js?w=5";
-import { mostrarHeader } from "./componentes/Header.js?w=5";
+import { tag } from "./utilidades/tag.js?w=6";
+import { contenido } from "./classes/Contenido.js?w=6";
+import { pintarEntrada } from "./home/Entrada.js?w=6";
+import { pintarHeader } from "./componentes/Header.js?w=6";
+import { pintarMenu } from "./componentes/Menu.js?w=6";
+import { pintarHome } from "./home/Home.js?w=6";
+import { pintarPerfil } from "./componentes/Perfil.js?w=6";
+import { pintarPerfiles } from "./componentes/Perfiles.js?w=6";
+import { pintarCatalogo } from "./componentes/Catalogo.js?w=6";
+import { pintarGrabacion } from "./componentes/Grabacion.js?w=6";
+import { pintarPlanes } from "./home/Planes.js?w=6";
+import { player } from "./player/Player.js?w=6";
+import { mapaObj } from "./mapa/Mapa.js?w=6";
+import { mostrarHeader } from "./componentes/Header.js?w=6";
 
 correr();
 

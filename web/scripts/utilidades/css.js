@@ -1,5 +1,5 @@
 export function bajarCss(estiloSrc, ejecutar) {
-  const enlace = `${estiloSrc}?w=5`;
+  const enlace = `${estiloSrc}?w=6`;
 
   fetch(enlace)
     .then((res) => res.text())

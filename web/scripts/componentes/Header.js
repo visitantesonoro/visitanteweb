@@ -1,11 +1,11 @@
-import { bajarCss } from "../utilidades/css.js?w=5";
-import { tag } from "../utilidades/tag.js?w=5";
-import { contenido } from "../classes/Contenido.js?w=5";
-import { textos } from "../utilidades/textos.js?w=5";
-import { conmutarMenu } from "./Menu.js?w=5";
+import { bajarCss } from "../utilidades/css.js?w=6";
+import { tag } from "../utilidades/tag.js?w=6";
+import { contenido } from "../classes/Contenido.js?w=6";
+import { textos } from "../utilidades/textos.js?w=6";
+import { conmutarMenu } from "./Menu.js?w=6";
 
 export function pintarHeader() {
-  const enlace = "./scripts/componentes/Header.css?w=5";
+  const enlace = "./scripts/componentes/Header.css?w=6";
   bajarCss(enlace, dibujarHeader);
 }
 
@@ -36,6 +36,9 @@ function pintarLogoHeader(el) {
 function pintarLogin(el) {
   const p = tag("p", el);
   p.innerHTML = textos.loginEs;
+  p.addEventListener("click", ()=>{
+    alert("Función en desarrollo")
+  })
 
   const divM = tag("div", el);
   divM.className = "hamburguesa";

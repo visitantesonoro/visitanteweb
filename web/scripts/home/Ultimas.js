@@ -1,14 +1,14 @@
-import { bajarCss } from "../utilidades/css.js?w=5";
-import { tag } from "../utilidades/tag.js?w=5";
-import { contenido } from "../classes/Contenido.js?w=5";
-import { GrabacionCaja } from "../classes/GrabacionCaja.js?w=5";
-import { data } from "../data/Data.js?w=5";
+import { bajarCss } from "../utilidades/css.js?w=6";
+import { tag } from "../utilidades/tag.js?w=6";
+import { contenido } from "../classes/Contenido.js?w=6";
+import { GrabacionCaja } from "../classes/GrabacionCaja.js?w=6";
+import { data } from "../data/Data.js?w=6";
 
 export function pintarUltimas() {
   if (contenido.UltimasCss) {
     traerUltimas();
   } else {
-    const enlace = "./scripts/home/Ultimas.css?w=5";
+    const enlace = "./scripts/home/Ultimas.css?w=6";
     bajarCss(enlace, traerUltimas);
   }
 }

@@ -1,9 +1,9 @@
-import { tag } from "../utilidades/tag.js?w=5";
-import { baseUri } from "../../enviroment.js?w=5";
-import { uploadUri } from "../../enviroment.js?w=5";
-import { bajarCss } from "../utilidades/css.js?w=5";
-import { formatearFecha } from "../utilidades/fecha.js?w=5";
-import { player } from "../player/Player.js?w=5";
+import { tag } from "../utilidades/tag.js?w=6";
+import { baseUri } from "../../enviroment.js?w=6";
+import { uploadUri } from "../../enviroment.js?w=6";
+import { bajarCss } from "../utilidades/css.js?w=6";
+import { formatearFecha } from "../utilidades/fecha.js?w=6";
+import { player } from "../player/Player.js?w=6";
 
 class Contenido {
   header;
@@ -21,7 +21,7 @@ class Contenido {
   yaBajoMapa = false;
 
   constructor() {
-    const enlace = "./scripts/classes/Contenido.css?w=5";
+    const enlace = "./scripts/classes/Contenido.css?w=6";
     bajarCss(enlace, null);
   }
 

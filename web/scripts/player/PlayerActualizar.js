@@ -1,7 +1,7 @@
-import { player } from "./Player.js?w=5";
-import { data } from "../data/Data.js?w=5";
-import { baseUri } from "../../enviroment.js?w=5";
-import { uploadUri } from "../../enviroment.js?w=5";
+import { player } from "./Player.js?w=6";
+import { data } from "../data/Data.js?w=6";
+import { baseUri } from "../../enviroment.js?w=6";
+import { uploadUri } from "../../enviroment.js?w=6";
 
 export function playerActualizar() {
   traerGrabacion();

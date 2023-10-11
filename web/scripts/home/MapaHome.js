@@ -1,10 +1,10 @@
-import { bajarCss } from "../utilidades/css.js?w=5";
-import { tag } from "../utilidades/tag.js?w=5";
-import { contenido } from "../classes/Contenido.js?w=5";
-import { textos } from "../utilidades/textos.js?w=5";
+import { bajarCss } from "../utilidades/css.js?w=6";
+import { tag } from "../utilidades/tag.js?w=6";
+import { contenido } from "../classes/Contenido.js?w=6";
+import { textos } from "../utilidades/textos.js?w=6";
 
 export function pintarMapaHome() {
-  const enlace = "./scripts/home/MapaHome.css?w=5";
+  const enlace = "./scripts/home/MapaHome.css?w=6";
   bajarCss(enlace, dibujarMapaHome);
 }
 

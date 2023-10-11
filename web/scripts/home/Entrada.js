@@ -1,13 +1,13 @@
-import { bajarCss } from "../utilidades/css.js?w=5";
-import { tag } from "../utilidades/tag.js?w=5";
-import { contenido } from "../classes/Contenido.js?w=5";
-import { textos } from "../utilidades/textos.js?w=5";
-import { mostrarHeader } from "../componentes/Header.js?w=5";
-import { player } from "../player/Player.js?w=5";
-import { pintarHome } from "./Home.js?w=5";
+import { bajarCss } from "../utilidades/css.js?w=6";
+import { tag } from "../utilidades/tag.js?w=6";
+import { contenido } from "../classes/Contenido.js?w=6";
+import { textos } from "../utilidades/textos.js?w=6";
+import { mostrarHeader } from "../componentes/Header.js?w=6";
+import { player } from "../player/Player.js?w=6";
+import { pintarHome } from "./Home.js?w=6";
 
 export function pintarEntrada() {
-  const enlace = "./scripts/home/Entrada.css?w=5";
+  const enlace = "./scripts/home/Entrada.css?w=6";
   bajarCss(enlace, dibujarEntrada);
 }
 

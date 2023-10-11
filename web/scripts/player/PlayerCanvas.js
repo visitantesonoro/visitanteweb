@@ -1,5 +1,5 @@
-import { contenido } from "../classes/Contenido.js?w=5";
-import { player } from "./Player.js?w=5";
+import { contenido } from "../classes/Contenido.js?w=6";
+import { player } from "./Player.js?w=6";
 
 export function pintarCanvas() {
   player.canvas = contenido.canvas;

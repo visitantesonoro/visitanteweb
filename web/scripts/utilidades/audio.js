@@ -1,4 +1,4 @@
-import { baseUri } from "../../enviroment.js?w=5";
+import { baseUri } from "../../enviroment.js?w=6";
 import { uploadUri } from "../../enviroment.js?ad=6";
 
 export const obtenerDuracion = (audio, ejecutar) => {

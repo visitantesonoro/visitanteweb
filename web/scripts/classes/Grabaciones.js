@@ -1,8 +1,8 @@
-import { tag } from "../utilidades/tag.js?w=5";
-import { bajarCss } from "../utilidades/css.js?w=5";
-import { formatearFecha } from "../utilidades/fecha.js?w=5";
-import { obtenerDuracion } from "../utilidades/audio.js?w=5";
-import { player } from "../player/Player.js?w=5";
+import { tag } from "../utilidades/tag.js?w=6";
+import { bajarCss } from "../utilidades/css.js?w=6";
+import { formatearFecha } from "../utilidades/fecha.js?w=6";
+import { obtenerDuracion } from "../utilidades/audio.js?w=6";
+import { player } from "../player/Player.js?w=6";
 
 export class Grabaciones {
   grabaciones = [];
@@ -10,7 +10,7 @@ export class Grabaciones {
   constructor(grabaciones) {
     this.grabaciones = grabaciones;
 
-    const enlace = "./scripts/classes/Grabaciones.css?w=5";
+    const enlace = "./scripts/classes/Grabaciones.css?w=6";
     bajarCss(enlace, null);
   }
 

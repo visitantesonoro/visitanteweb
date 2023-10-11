@@ -1,10 +1,10 @@
-import { bajarCss } from "../utilidades/css.js?w=5";
-import { tag } from "../utilidades/tag.js?w=5";
-import { contenido } from "../classes/Contenido.js?w=5";
-import { data } from "../data/Data.js?w=5";
-import { baseUri } from '../../enviroment.js?w=5';
-import { uploadUri } from '../../enviroment.js?w=5';
-import { Grabaciones } from "../classes/Grabaciones.js?w=5";
+import { bajarCss } from "../utilidades/css.js?w=6";
+import { tag } from "../utilidades/tag.js?w=6";
+import { contenido } from "../classes/Contenido.js?w=6";
+import { data } from "../data/Data.js?w=6";
+import { baseUri } from '../../enviroment.js?w=6';
+import { uploadUri } from '../../enviroment.js?w=6';
+import { Grabaciones } from "../classes/Grabaciones.js?w=6";
 
 export function pintarPerfil(url) {
   contenido.perfilUrl = url;
@@ -12,7 +12,7 @@ export function pintarPerfil(url) {
   if (contenido.perfilCss) {
     traerPefilData();
   } else {
-    const enlace = "./scripts/componentes/Perfil.css?w=5";
+    const enlace = "./scripts/componentes/Perfil.css?w=6";
     bajarCss(enlace, traerPefilData);
   }
 }
