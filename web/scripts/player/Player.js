@@ -1,6 +1,6 @@
-import { pintarPlayer } from "./PlayerPintar.js?w=1";
-import { playerActualizar } from "./PlayerActualizar.js?w=1";
-import { pintarCanvas, animarFrecuencias } from "./PlayerCanvas.js?w=1";
+import { pintarPlayer } from "./PlayerPintar.js?w=5";
+import { playerActualizar } from "./PlayerActualizar.js?w=5";
+import { pintarCanvas, animarFrecuencias } from "./PlayerCanvas.js?w=5";
 
 class Player {
   yaHuboClick = false;

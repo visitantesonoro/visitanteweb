@@ -1,13 +1,13 @@
-import { tag } from "../utilidades/tag.js?ad=1";
-import { contenido } from "../classes/Contenido.js?ad=1";
-import { data } from "../data/Data.js?ad=1";
-import { Forma } from "../classes/Forma.js?ad=1";
-import { bajarCss } from "../utilidades/css.js?ad=1";
+import { tag } from "../utilidades/tag.js?ad=6";
+import { contenido } from "../classes/Contenido.js?ad=6";
+import { data } from "../data/Data.js?ad=6";
+import { Forma } from "../classes/Forma.js?ad=6";
+import { bajarCss } from "../utilidades/css.js?ad=6";
 
 export function pintarGrabaciones() {
   contenido.main.innerHTML = "";
 
-  const enlace = "./scripts/componentes/Grabaciones.css?ad=1";
+  const enlace = "./scripts/componentes/Grabaciones.css?ad=6";
   bajarCss(enlace, traerDataGrabaciones);
 }
 

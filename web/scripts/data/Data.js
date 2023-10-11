@@ -1,4 +1,4 @@
-import { baseUri } from "../../enviroment.js?w=1";
+import { baseUri } from "../../enviroment.js?w=5";
 
 class Data {
   async traerLista(fx, uri) {

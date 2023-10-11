@@ -1,8 +1,9 @@
-import { bajarCss } from "../utilidades/css.js?w=1";
-import { tag } from "../utilidades/tag.js?w=1";
-import { contenido } from "../classes/Contenido.js?w=1";
-import { data } from "../data/Data.js?w=1";
-import { baseUri } from "../../enviroment.js?w=1";
+import { bajarCss } from "../utilidades/css.js?w=5";
+import { tag } from "../utilidades/tag.js?w=5";
+import { contenido } from "../classes/Contenido.js?w=5";
+import { data } from "../data/Data.js?w=5";
+import { baseUri } from "../../enviroment.js?w=5";
+import { uploadUri } from '../../enviroment.js?w=5';
 
 class MapaObj {
   map;
@@ -78,7 +79,7 @@ function bajarDatos() {
 }
 
 function pintarMapa() {
-  const enlace = "./scripts/mapa/Mapa.css?w=1";
+  const enlace = "./scripts/mapa/Mapa.css?w=5";
   bajarCss(enlace, dibujarMapa);
 }
 
@@ -117,7 +118,7 @@ function pintarMarkers(data) {
 
     const musico = data.musicos.find(musico => musico._id === grabacion.musico);
 
-    const imgSrc = `url(${baseUri}/${musico.imagen})`;
+    const imgSrc = `url(${uploadUri}/${musico.imagen})`;
 
     const el = document.createElement("div");
     const width = 30;

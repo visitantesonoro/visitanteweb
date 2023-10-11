@@ -1,17 +1,17 @@
-import { tag } from "../utilidades/tag.js?ad=1";
-import { bajarCss } from "../utilidades/css.js?ad=1";
-import { pintarMusicos } from "./Musicos.js?ad=1";
-import { pintarGrabaciones } from "./Grabaciones.js?ad=1";
-import { pintarCategorias } from "./Categorias.js?ad=1";
-import { pintarTags } from "./Tags.js?ad=1";
-import { logout } from "../data/dataAdmin.js?ad=1";
+import { tag } from "../utilidades/tag.js?ad=6";
+import { bajarCss } from "../utilidades/css.js?ad=6";
+import { pintarMusicos } from "./Musicos.js?ad=6";
+import { pintarGrabaciones } from "./Grabaciones.js?ad=6";
+import { pintarCategorias } from "./Categorias.js?ad=6";
+import { pintarTags } from "./Tags.js?ad=6";
+import { logout } from "../data/dataAdmin.js?ad=6";
 
 let elPadre;
 
 export function pintarHeader(padre) {
   elPadre = padre;
 
-  const enlace = "./scripts/componentes/Header.css?ad=1";
+  const enlace = "./scripts/componentes/Header.css?ad=6";
   bajarCss(enlace, dibujarHeader);
 }
 

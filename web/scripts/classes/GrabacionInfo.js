@@ -1,8 +1,8 @@
-import { tag } from "../utilidades/tag.js?w=1";
-import { bajarCss } from "../utilidades/css.js?w=1";
-import { baseUri } from "../../enviroment.js?=w=1";
-import { formatearFecha } from "../utilidades/fecha.js?w=1";
-import { player } from "../player/Player.js?w=1";
+import { tag } from "../utilidades/tag.js?w=5";
+import { bajarCss } from "../utilidades/css.js?w=5";
+import { uploadUri } from "../../enviroment.js?w=5";
+import { formatearFecha } from "../utilidades/fecha.js?w=5";
+import { player } from "../player/Player.js?w=5";
 
 export class GrabacionInfo {
   constructor(contenedor, data, estilo) {
@@ -10,7 +10,7 @@ export class GrabacionInfo {
     this.data = data;
     this.estilo = estilo;
 
-    const enlace = "./scripts/classes/GrabacionInfo.css?w=1";
+    const enlace = "./scripts/classes/GrabacionInfo.css?w=5";
     bajarCss(enlace, null);
   }
 
@@ -24,7 +24,7 @@ export class GrabacionInfo {
 
     const img = tag("img", divG);
     img.className = "grabacion-info-musico-img";
-    img.src = `${baseUri}/${this.data.musico.imagen}`;
+    img.src = `${uploadUri}/${this.data.musico.imagen}`;
 
     const imgPlay = tag("img", divG);
     imgPlay.className = "grabacion-info-play-img";

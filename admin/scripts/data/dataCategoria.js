@@ -1,6 +1,6 @@
-import { baseUri } from "../../enviroment.js?ad=1";
-import { admin } from "../classes/Admin.js?ad=1";
-import { logout } from "./dataAdmin.js?ad=1";
+import { baseUri } from "../../enviroment.js?ad=6";
+import { admin } from "../classes/Admin.js?ad=6";
+import { logout } from "./dataAdmin.js?ad=6";
 
 export async function grabarCategoria(info) {
   const uri = !info.id

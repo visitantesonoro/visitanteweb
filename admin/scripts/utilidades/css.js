@@ -1,5 +1,5 @@
 // export function bajarCss(estiloSrc, ejecutar) {
-//     const enlace = `${estiloSrc}?ad=1`;
+//     const enlace = `${estiloSrc}?ad=6`;
 //     const xhr = new XMLHttpRequest();
 //     xhr.open("GET", enlace);
 //     xhr.onreadystatechange = function () {
@@ -18,7 +18,7 @@
 //   }
 
 export async function bajarCss(estiloSrc, ejecutar) {
-  const enlace = `${estiloSrc}?ad=1`;
+  const enlace = `${estiloSrc}?ad=6`;
 
   await cssReq("GET", enlace);
 

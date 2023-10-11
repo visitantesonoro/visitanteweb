@@ -1,8 +1,9 @@
-import { tag } from "../utilidades/tag.js?ad=1";
-import { bajarCss } from "../utilidades/css.js?ad=1";
-import { baseUri } from "../../enviroment.js?ad=1";
-import { admin } from "../classes/Admin.js?ad=1";
-import { logout } from "../data/dataAdmin.js?ad=1";
+import { tag } from "../utilidades/tag.js?ad=6";
+import { bajarCss } from "../utilidades/css.js?ad=6";
+import { baseUri } from "../../enviroment.js?ad=6";
+import { uploadUri } from "../../enviroment.js?ad=6";
+import { admin } from "../classes/Admin.js?ad=6";
+import { logout } from "../data/dataAdmin.js?ad=6";
 
 export class Forma {
   contenedor;
@@ -37,7 +38,7 @@ export class Forma {
       return;
     }
 
-    const enlace = "./scripts/classes/Forma.css?ad=1";
+    const enlace = "./scripts/classes/Forma.css?ad=6";
     bajarCss(enlace, this.dibujar.bind(this));
   }
 
@@ -106,12 +107,12 @@ export class Forma {
         if (campo.opciones.tipo === "img") {
           thisObj.img = tag("img", div);
           thisObj.img.src =
-            campo.valor != "" ? `${baseUri}/${campo.valor}` : "";
+            campo.valor != "" ? `${uploadUri}/${campo.valor}` : "";
         } else if (campo.opciones.tipo === "audio") {
           thisObj.audio = tag("audio", div);
           thisObj.audio.controls = true;
           thisObj.audio.src =
-            campo.valor != "" ? `${baseUri}/${campo.valor}` : "";
+            campo.valor != "" ? `${uploadUri}/${campo.valor}` : "";
         }
 
         const input = tag("input", div);

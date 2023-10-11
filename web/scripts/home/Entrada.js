@@ -1,19 +1,24 @@
-import { bajarCss } from "../utilidades/css.js?w=1";
-import { tag } from "../utilidades/tag.js?w=1";
-import { contenido } from "../classes/Contenido.js?w=1";
-import { textos } from "../utilidades/textos.js?w=1";
-import { mostrarHeader } from "../componentes/Header.js?w=1";
-import { player } from "../player/Player.js?w=1";
-import { pintarHome } from "./Home.js?w=1";
+import { bajarCss } from "../utilidades/css.js?w=5";
+import { tag } from "../utilidades/tag.js?w=5";
+import { contenido } from "../classes/Contenido.js?w=5";
+import { textos } from "../utilidades/textos.js?w=5";
+import { mostrarHeader } from "../componentes/Header.js?w=5";
+import { player } from "../player/Player.js?w=5";
+import { pintarHome } from "./Home.js?w=5";
 
 export function pintarEntrada() {
-  const enlace = "./scripts/home/Entrada.css?w=1";
+  const enlace = "./scripts/home/Entrada.css?w=5";
   bajarCss(enlace, dibujarEntrada);
 }
 
 function dibujarEntrada() {
   contenido.logo.className = "logoG";
   dibujarLogo();
+  dibujarCelulares()
+}
+
+function dibujarCelulares(){
+  contenido.popupCel.innerHTML = "Estamos trabajando en una versión para dispositivos móviles que estará disponible próximamente. Actualmente, este sitio web solo está accesible desde computadoras.";
 }
 
 function dibujarLogo() {

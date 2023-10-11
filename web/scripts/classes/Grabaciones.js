@@ -1,8 +1,8 @@
-import { tag } from "../utilidades/tag.js?w=1";
-import { bajarCss } from "../utilidades/css.js?w=1";
-import { formatearFecha } from "../utilidades/fecha.js?w=1";
-import { obtenerDuracion } from "../utilidades/audio.js?w=1";
-import { player } from "../player/Player.js?w=1";
+import { tag } from "../utilidades/tag.js?w=5";
+import { bajarCss } from "../utilidades/css.js?w=5";
+import { formatearFecha } from "../utilidades/fecha.js?w=5";
+import { obtenerDuracion } from "../utilidades/audio.js?w=5";
+import { player } from "../player/Player.js?w=5";
 
 export class Grabaciones {
   grabaciones = [];
@@ -10,7 +10,7 @@ export class Grabaciones {
   constructor(grabaciones) {
     this.grabaciones = grabaciones;
 
-    const enlace = "./scripts/classes/Grabaciones.css?w=1";
+    const enlace = "./scripts/classes/Grabaciones.css?w=5";
     bajarCss(enlace, null);
   }
 
@@ -31,14 +31,12 @@ export class Grabaciones {
 }
 
 class Grabacion {
-
   constructor(info) {
     this.info = info;
     this.campos = ["titulo", "lugar", "fecha", "audio"];
   }
 
   async pintar(el) {
-
     const thisObj = this;
 
     this.el = el;
@@ -48,8 +46,7 @@ class Grabacion {
     this.dibujarFila();
   }
 
-  ponerASonar(){
-
+  ponerASonar() {
     player.ponerASonarDesdePlaylist(this.el, this.info.musico, this.info.url);
   }
 
@@ -75,7 +72,7 @@ class Grabacion {
           pos = 1;
         }
 
-        this.camposObj.push({valor, pos});
+        this.camposObj.push({ valor, pos });
       }
     }
   }

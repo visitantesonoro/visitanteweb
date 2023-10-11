@@ -1,7 +1,7 @@
-import { tag } from "./utilidades/tag.js?ad=1";
-import { pintarHeader } from "./componentes/Header.js?ad=1";
-import { contenido } from "./classes/Contenido.js?ad=1";
-import { pintarLogin } from "./componentes/Login.js?ad=1";
+import { tag } from "./utilidades/tag.js?ad=6";
+import { pintarHeader } from "./componentes/Header.js?ad=6";
+import { contenido } from "./classes/Contenido.js?ad=6";
+import { pintarLogin } from "./componentes/Login.js?ad=6";
 
 correr();
 

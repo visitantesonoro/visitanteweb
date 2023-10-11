@@ -1,10 +1,10 @@
-import { tag } from "../utilidades/tag.js?ad=1";
-import { data } from "../data/Data.js?ad=1";
-import { bajarCss } from "../utilidades/css.js?ad=1";
-import { pintarAdminWeb } from "../main.js?ad=1";
+import { tag } from "../utilidades/tag.js?ad=6";
+import { data } from "../data/Data.js?ad=6";
+import { bajarCss } from "../utilidades/css.js?ad=6";
+import { pintarAdminWeb } from "../main.js?ad=6";
 
 export function pintarLogin() {
-  const enlace = "./scripts/componentes/Login.css?ad=1";
+  const enlace = "./scripts/componentes/Login.css?ad=6";
   bajarCss(enlace, dibujarLogin);
 }
 

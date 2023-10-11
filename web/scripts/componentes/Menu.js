@@ -1,50 +1,45 @@
-import { bajarCss } from "../utilidades/css.js?w=1";
-import { tag } from "../utilidades/tag.js?w=1";
-import { contenido } from "../classes/Contenido.js?w=1";
+import { bajarCss } from "../utilidades/css.js?w=5";
+import { tag } from "../utilidades/tag.js?w=5";
+import { contenido } from "../classes/Contenido.js?w=5";
 
 export function pintarMenu() {
-  const enlace = "./scripts/componentes/Menu.css?w=1";
+  const enlace = "./scripts/componentes/Menu.css?w=5";
   bajarCss(enlace, dibujarMenu);
 }
 
 function dibujarMenu() {
+  const menu = [
+    {
+      titulo: "Home",
+      ref: "#/home",
+    },
+    {
+      titulo: "Mapa",
+      ref: "#/mapa",
+    },
+    {
+      titulo: "Perfiles",
+      ref: "#/perfiles",
+    },
+    {
+      titulo: "Catalogo",
+      ref: "#/catalogo",
+    },
+    {
+      titulo: "Planes",
+      ref: "#/planes",
+    },
+  ];
+
   contenido.nav.className = "menu";
 
-  const aH = tag("a", contenido.nav);
-  aH.innerHTML = "Home";
-  aH.addEventListener("click", () => {
-    conmutarMenu();
-    window.location.href = "#/home";
-    // this.conmutarMenu();
-
-    // if (info.seccion === "mapa") {
-    //   mapa.mapa.style.animation = "slide-up 900ms ease-out forwards";
-    // }
-
-    // info.seccion = "home";
-    // window.location.href = "/#/home";
-  });
-
-  const a = tag("a", contenido.nav);
-  a.innerHTML = "Mapa";
-  a.addEventListener("click", () => {
-    conmutarMenu();
-    window.location.href = "#/mapa";
-  });
-
-  const aP = tag("a", contenido.nav);
-  aP.innerHTML = "Perfiles";
-  aP.addEventListener("click", () => {
-    conmutarMenu();
-    window.location.href = "#/perfiles";
-    // this.conmutarMenu();
-    // if (info.seccion === "mapa") {
-    //   mapa.mapa.style.animation = "slide-up 900ms ease-out forwards";
-    // }
-
-    // mapa.mapa.style.animation = "slide-up 900ms ease-out forwards";
-
-    // window.location.href = "/#/perfiles";
+  menu.map((item) => {
+    const aH = tag("a", contenido.nav);
+    aH.innerHTML = item.titulo;
+    aH.addEventListener("click", () => {
+      conmutarMenu();
+      window.location.href = item.ref;
+    });
   });
 }
 

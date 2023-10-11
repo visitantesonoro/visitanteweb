@@ -1,11 +1,12 @@
-import { baseUri } from "../../enviroment.js?w=1";
+import { baseUri } from "../../enviroment.js?w=5";
+import { uploadUri } from "../../enviroment.js?ad=6";
 
 export const obtenerDuracion = (audio, ejecutar) => {
   let audioObj = new Audio();
   document.body.appendChild(audioObj);
 
   return new Promise((resolve) => {
-    const audioSrc = `${baseUri}/${audio}`;
+    const audioSrc = `${uploadUri}/${audio}`;
     audioObj.src = audioSrc;
     audioObj.addEventListener("loadeddata", () => {
       const duracion = audioObj.duration;

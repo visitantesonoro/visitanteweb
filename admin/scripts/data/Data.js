@@ -1,10 +1,10 @@
-import { baseUri } from "../../enviroment.js?ad=1";
-import { grabarGrabacion } from "./dataGrabacion.js?ad=1";
-import { grabarMusico } from "./dataMusico.js?ad=1";
-import { grabarCategoria } from "./dataCategoria.js?ad=1";
-import { grabarTag } from "./dataTag.js?ad=1";
-import { logear } from "./dataAdmin.js?ad=1";
-import { admin } from "../classes/Admin.js?ad=1";
+import { baseUri } from "../../enviroment.js?ad=6";
+import { grabarGrabacion } from "./dataGrabacion.js?ad=6";
+import { grabarMusico } from "./dataMusico.js?ad=6";
+import { grabarCategoria } from "./dataCategoria.js?ad=6";
+import { grabarTag } from "./dataTag.js?ad=6";
+import { logear } from "./dataAdmin.js?ad=6";
+import { admin } from "../classes/Admin.js?ad=6";
 
 class Data {
   async traerLista(fx, uri) {

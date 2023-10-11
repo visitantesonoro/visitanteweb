@@ -1,6 +1,7 @@
-import { player } from "./Player.js?w=1";
-import { data } from "../data/Data.js?w=1";
-import { baseUri } from "../../enviroment.js?w=1";
+import { player } from "./Player.js?w=5";
+import { data } from "../data/Data.js?w=5";
+import { baseUri } from "../../enviroment.js?w=5";
+import { uploadUri } from "../../enviroment.js?w=5";
 
 export function playerActualizar() {
   traerGrabacion();
@@ -23,7 +24,7 @@ function actualizarInfoPlayer(data) {
 
   player.audio = new Audio();
   player.audio.crossOrigin = "anonymous";
-  player.audio.src = `${baseUri}/${data.grabacion.audio}`;
+  player.audio.src = `${uploadUri}/${data.grabacion.audio}`;
   document.body.appendChild(player.audio);
 
   organizarEventos();

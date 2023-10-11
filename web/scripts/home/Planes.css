@@ -1,0 +1,53 @@
+.planes{
+    min-height: 90vh;
+    background-color: rgb(58, 81, 121);
+    padding: 3%;
+}
+
+.planes>h1{
+    font-size: 4rem;
+    padding: 2%;
+    color:rgb(242, 242, 242);
+}
+
+.planes>p{
+    font-size: 2rem;
+    padding: 2% 40% 2% 5%;
+    color:rgb(242, 242, 242);
+}
+
+.planes section{
+    display: flex;
+    justify-content:space-between;
+    padding: 8%;
+}
+
+.planes-caja{
+    width:30%;
+    background-color: rgb(255, 255, 255);
+    height: 400px;
+    border-radius: 12px;
+}
+
+.planes-caja h1{
+    color:rgb(58, 81, 121);
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    padding: 7%;
+}
+
+.planes-caja div{
+    border-top:1px solid rgb(156, 156, 156);
+    padding: 2%;
+}
+
+.planes-caja ul{
+    list-style:none;
+    padding: 3% 6%;
+}
+
+.planes-caja ul li{
+    padding-top: 20px;
+    font-size: 1.2rem;
+}

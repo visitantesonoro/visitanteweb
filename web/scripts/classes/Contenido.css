@@ -76,9 +76,17 @@
 
 .popup-grabacion-play div{
     background-color: rgb(53, 66, 98);
-    padding: 14px 14px;
-    border-radius: 50%;
+    border-radius: 12px;
+    width: 80px;
+    height: 80px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-grabacion-play div img{
+  width:80%;
 }
 
 .popup-grabacion-play div:hover{

@@ -32,34 +32,6 @@
     rotate: -90deg;
 }
 
-@keyframes slide-down {
-    from {
-        opacity: 0;
-        transform: translateY(-3rem);
-        visibility: hidden;
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        visibility: visible;
-    }
-}
-
-@keyframes slide-up {
-    from {
-        opacity: 1;
-        transform: translateY(0rem);
-        visibility: visible;
-    }
-
-    to {
-        opacity: 0;
-        transform: translateY(0rem);
-        
-    }
-}
-
 nav{
     text-align: left;
     padding: 10px 20px;

@@ -1,5 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
 
+.popup-cel{
+    position: fixed;
+    z-index: 200;
+    width:100%;
+    height:100%;
+    left: 0px;
+    top:0px;
+    background-color: rgb(74, 74, 74);
+    color:aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    padding: 5%;
+    text-align: center;
+    visibility: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+    .popup-cel{
+        visibility: visible;
+    }
+  }
 
 .logoG{
     position: absolute;

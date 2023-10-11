@@ -1,6 +1,6 @@
-import { baseUri } from "../../enviroment.js?ad=1";
-import { admin } from "../classes/Admin.js?ad=1";
-import { pintarLogin } from "../componentes/Login.js?ad=1";
+import { baseUri } from "../../enviroment.js?ad=6";
+import { admin } from "../classes/Admin.js?ad=6";
+import { pintarLogin } from "../componentes/Login.js?ad=6";
 
 export const logear = async(usuario) =>{
     const direccionLogin = `${baseUri}/admin/administradores/login`;

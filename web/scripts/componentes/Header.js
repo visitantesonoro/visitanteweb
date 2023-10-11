@@ -1,11 +1,11 @@
-import { bajarCss } from "../utilidades/css.js?w=1";
-import { tag } from "../utilidades/tag.js?w=1";
-import { contenido } from "../classes/Contenido.js?w=1";
-import { textos } from "../utilidades/textos.js?w=1";
-import { conmutarMenu } from "./Menu.js?w=1";
+import { bajarCss } from "../utilidades/css.js?w=5";
+import { tag } from "../utilidades/tag.js?w=5";
+import { contenido } from "../classes/Contenido.js?w=5";
+import { textos } from "../utilidades/textos.js?w=5";
+import { conmutarMenu } from "./Menu.js?w=5";
 
 export function pintarHeader() {
-  const enlace = "./scripts/componentes/Header.css?w=1";
+  const enlace = "./scripts/componentes/Header.css?w=5";
   bajarCss(enlace, dibujarHeader);
 }
 

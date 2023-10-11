@@ -1,10 +1,10 @@
-import { bajarCss } from "../utilidades/css.js?w=1";
-import { tag } from "../utilidades/tag.js?w=1";
-import { contenido } from "../classes/Contenido.js?w=1";
-import { player } from "./Player.js?w=1";
+import { bajarCss } from "../utilidades/css.js?w=5";
+import { tag } from "../utilidades/tag.js?w=5";
+import { contenido } from "../classes/Contenido.js?w=5";
+import { player } from "./Player.js?w=5";
 
 export function pintarPlayer() {
-  const enlace = "./scripts/player/Player.css?w=1";
+  const enlace = "./scripts/player/Player.css?w=5";
   bajarCss(enlace, dibujarPlayer);
 }
 

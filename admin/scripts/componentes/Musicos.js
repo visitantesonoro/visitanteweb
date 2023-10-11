@@ -1,14 +1,15 @@
-import { tag } from "../utilidades/tag.js?ad=1";
-import { contenido } from "../classes/Contenido.js?ad=1";
-import { data } from "../data/Data.js?ad=1";
-import { Forma } from "../classes/Forma.js?ad=1";
-import { bajarCss } from "../utilidades/css.js?ad=1";
-import { baseUri } from "../../enviroment.js?ad=1";
+import { tag } from "../utilidades/tag.js?ad=6";
+import { contenido } from "../classes/Contenido.js?ad=6";
+import { data } from "../data/Data.js?ad=6";
+import { Forma } from "../classes/Forma.js?ad=6";
+import { bajarCss } from "../utilidades/css.js?ad=6";
+import { baseUri } from "../../enviroment.js?ad=6";
+import { uploadUri } from "../../enviroment.js?ad=6";
 
 export function pintarMusicos() {
   contenido.main.innerHTML = "";
 
-  const enlace = "./scripts/componentes/Musicos.css?ad=1";
+  const enlace = "./scripts/componentes/Musicos.css?ad=6";
   bajarCss(enlace, traerDataMusicos);
 }
 
@@ -17,7 +18,6 @@ function traerDataMusicos() {
 }
 
 function dibujarMusicos(info) {
-
   const div = tag("div", contenido.main);
   div.className = "musicos";
 
@@ -44,17 +44,16 @@ function dibujarMusicos(info) {
     h1.innerHTML = musico.nombre;
 
     const img = tag("img", divM);
-    img.src = `${baseUri}/${musico.imagen}`
+    img.src = `${uploadUri}/${musico.imagen}`;
   });
 }
 
 function formaMusicos(musico) {
-
   const imgOp = {
-    id:"imagen",
-    tipo:"img",
-    ext:[".jpg, .png, .jpeg"]
-  }
+    id: "imagen",
+    tipo: "img",
+    ext: [".jpg, .png, .jpeg"],
+  };
 
   const forma = new Forma();
   forma.data = musico ? musico : null;
@@ -70,7 +69,7 @@ function formaMusicos(musico) {
     "imagen",
     musico ? musico.imagen : "",
     "Imagen",
-    true,
+    false,
     imgOp
   );
   forma.agregarCampo(

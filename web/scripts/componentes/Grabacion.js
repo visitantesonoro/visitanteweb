@@ -1,9 +1,9 @@
-import { bajarCss } from "../utilidades/css.js?w=1";
-import { tag } from "../utilidades/tag.js?w=1";
-import { contenido } from "../classes/Contenido.js?w=1";
-import { data } from "../data/Data.js?w=1";
-import { GrabacionInfo } from "../classes/GrabacionInfo.js?w=1";
-import { GrabacionCaja } from "../classes/GrabacionCaja.js?w=1";
+import { bajarCss } from "../utilidades/css.js?w=5";
+import { tag } from "../utilidades/tag.js?w=5";
+import { contenido } from "../classes/Contenido.js?w=5";
+import { data } from "../data/Data.js?w=5";
+import { GrabacionInfo } from "../classes/GrabacionInfo.js?w=5";
+import { GrabacionCaja } from "../classes/GrabacionCaja.js?w=5";
 
 export function pintarGrabacion(url) {
   contenido.grabacionUrl = url;
@@ -11,7 +11,7 @@ export function pintarGrabacion(url) {
   if (contenido.grabacionCss) {
     traerGrabacionData();
   } else {
-    const enlace = "./scripts/componentes/Grabacion.css?w=1";
+    const enlace = "./scripts/componentes/Grabacion.css?w=5";
     bajarCss(enlace, traerGrabacionData);
   }
 }
@@ -51,6 +51,6 @@ function dibujarGrabacionEnlaces(el, data) {
   const divC = tag("div", el);
 
   const grabacionesCajaCategoria = new GrabacionCaja(divC, data.grabacionesCategoria, data.grabacion._id);
-  grabacionesCajaCategoria.titulo = "Más grabaciones de " + data.categoria.titulo;
+  grabacionesCajaCategoria.titulo = "Más grabaciones de la categoria  " + data.categoria.titulo;
   grabacionesCajaCategoria.pintar();
 }
